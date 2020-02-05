@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  traveller_id: 1
+  genre: MyString
+  name: MyString
+  text: MyText
+  image: MyString
+  cost: 1
+  business_hours: MyString
+  stay_time: MyString
+  position: MyString
+  access: MyString
+  public_status: MyString
+
+two:
+  traveller_id: 1
+  genre: MyString
+  name: MyString
+  text: MyText
+  image: MyString
+  cost: 1
+  business_hours: MyString
+  stay_time: MyString
+  position: MyString
+  access: MyString
+  public_status: MyString

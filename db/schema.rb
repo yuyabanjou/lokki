@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_111645) do
+ActiveRecord::Schema.define(version: 2020_02_05_115625) do
+
+  create_table "spots", force: :cascade do |t|
+    t.integer "traveller_id"
+    t.string "genre"
+    t.string "spot_name"
+    t.text "spot_text"
+    t.string "image"
+    t.integer "cost"
+    t.string "business_hours"
+    t.string "stay_time"
+    t.string "position"
+    t.string "access"
+    t.string "public_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "travellers", force: :cascade do |t|
     t.string "email", default: "", null: false
