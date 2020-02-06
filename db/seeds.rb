@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Traveler.create!(
+Traveller.create!(
    email: 'test@test',
    password: '111111',
    name: 'test',
+   trip_count: '0',
+   entry_status: 'true'
 )

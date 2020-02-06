@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-  get 'spots/index'
-  get 'spots/show'
-  get 'spots/new'
-  get 'spots/create'
-  get 'spots/edit'
-  get 'spots/update'
-  get 'spots/destroy'
-  devise_for :travellers
+
+  devise_for :travellers, controllers: {
+  sessions:      'travellers/sessions',
+  passwords:     'travellers/passwords',
+  registrations: 'travellers/registrations'
+  }
+
+  root 'travellers/spots#top'
+
+  scope module: :travellers do
+  	resources :spots
+  end
+
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
