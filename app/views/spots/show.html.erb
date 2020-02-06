@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<h2><strong>スポット 詳細画面</strong></h2>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<%= attachment_image_tag @spot, :image, :fill, 100, 100 %>
+					</div>
+
+					<div class="col-sm-6">
+						<h3 style="padding-bottom: 30px;"><%= @spot.spot_name %></h3>
+
+						<p style="padding-bottom: 30px;"><%= @spot.spot_text %></p>
+
+						<h4 style="padding-bottom: 30px;"><%= @spot.genre %></h4>
+
+						<h4>料金</h4>
+						<%= @spot.cost %>
+
+						<h4>営業時間</h4>
+						<%= @spot.business_hours %>
+
+						<h4>目安滞在時間</h4>
+						<%= @spot.stay_time %>
+
+						<h4>位置情報</h4>
+						<%= @spot.position %>
+
+						<h4>おすすめのアクセス方法</h4>
+						<%= @spot.access %>
+
+						<h4>公開ステータス</h4>
+						<%= @spot.public_status %>
+						<br>
+						<br>
+
+					<%= link_to '編集する', edit_traveller_spot_path(@spot.id) %>
+
+		</div>
+	</div>
+</div>

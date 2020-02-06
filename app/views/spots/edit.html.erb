@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row">
+		<h2><strong>スポット 編集画面</strong></h2>
+
+		<%= form_for([@traveller, @spot]) do |f| %>
+
+		<%= f.attachment_field :image %>
+
+		<h4>スポット名</h4>
+		<%= f.text_field :spot_name %>
+
+		<h4>説明</h4>
+		<%= f.text_area :spot_text %>
+
+		<h4>ジャンル</h4>
+		<%= f.text_field :genre %>
+
+		<h4>料金</h4>
+		<%= f.text_field :cost %>
+
+		<h4>営業時間</h4>
+		<%= f.text_field :business_hours %>
+
+		<h4>目安滞在時間</h4>
+		<%= f.text_field :stay_time %>
+
+		<h4>位置情報</h4>
+		<%= f.text_field :position %>
+
+		<h4>おすすめのアクセス方法</h4>
+		<%= f.text_field :access %>
+
+		<h4>公開ステータス</h4>
+		<%= f.text_field :public_status %>
+		<br>
+		<br>
+
+		<%= f.submit '保存する' %>
+
+		<% end %>
+
+	</div>
+</div>

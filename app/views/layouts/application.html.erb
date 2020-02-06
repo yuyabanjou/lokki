@@ -14,11 +14,16 @@
       <header>
         <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
+
+          <% if traveller_signed_in? %>
           <nav class="navbar-header">
-            logo
+            <%= link_to "logo", root_path %><br>login now
           </nav>
           <nav class="navbar-right">
             <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <%= link_to "spot new", new_traveller_spot_path(current_traveller) %>
+              </li>
               <li class="nav-item">
                 mypage
               </li>
@@ -33,6 +38,26 @@
               </li>
             </ul>
           </nav>
+
+          <% else %>
+          <nav class="navbar-header">
+            <%= link_to "logo", root_path %><br>logout now
+          </nav>
+          <nav class="navbar-right">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                mypage
+              </li>
+              <li class="nav-item">
+                <%= link_to "log in", traveller_session_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "sign_up", new_traveller_registration_path %>
+              </li>
+            </ul>
+          </nav>
+          <% end %>
+
           </div>
         </nav>
       </header>

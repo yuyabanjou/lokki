@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   registrations: 'travellers/registrations'
   }
 
-  root 'travellers/spots#top'
+  root 'spots#top'
 
-  scope module: :travellers do
-  	resources :spots
+  resources :travellers do
+  	resources :spots, only: [:new, :create, :index, :show, :edit, :update]
   end
 
 

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_115625) do
     t.string "genre"
     t.string "spot_name"
     t.text "spot_text"
-    t.string "image"
+    t.string "image_id"
     t.integer "cost"
     t.string "business_hours"
     t.string "stay_time"
