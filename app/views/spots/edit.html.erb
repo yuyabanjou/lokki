@@ -39,5 +39,9 @@
 
 		<% end %>
 
+		<botton type="botton" class="btn btn-default">
+			<%= link_to "削除する", traveller_spot_path(@spot.id), method: :delete, data: { confirm: '本当に消しますか?' } %>
+		</botton>
+
 	</div>
 </div>

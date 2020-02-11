@@ -1,10 +1,13 @@
 class SpotsController < ApplicationController
 
+  before_action :authenticate_traveller!, except: [:top, :index, :show]
+
   def top
+    @spots = Spot.page(params[:page]).reverse_order
   end
 
   def index
-    @spots = Spot.all
+    @spots = Spot.page(params[:page]).reverse_order
   end
 
   def show
@@ -20,21 +23,28 @@ class SpotsController < ApplicationController
     @spot = Spot.new(spot_params)
     @spot.traveller_id = current_traveller.id
     @spot.save
-    redirect_to traveller_spot_path(id: @spot.id)
+    redirect_to spot_path(id: @spot.id)
   end
 
   def edit
     @spot = Spot.find(params[:id])
     @traveller = current_traveller
+    if @traveller.id == current_traveller.id
+    else
+      redirect_to spot_path(@spot.id)
+    end
   end
 
   def update
     @spot = Spot.find(params[:id])
     @spot.update(spot_params)
-    redirect_to traveller_spot_path(id: @spot.id)
+    redirect_to spot_path(@spot.id)
   end
 
   def destroy
+    spot = Spot.find(params[:id])
+    spot.destroy
+    redirect_to spots_path
   end
 
   private

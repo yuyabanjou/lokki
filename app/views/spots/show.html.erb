@@ -35,7 +35,9 @@
 						<br>
 						<br>
 
+					<% if current_traveller %>
 					<%= link_to '編集する', edit_traveller_spot_path(@spot.id) %>
+					<% end %>
 
 		</div>
 	</div>

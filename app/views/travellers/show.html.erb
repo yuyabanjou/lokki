@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<h2><strong>ユーザ 詳細画面</strong></h2>
+
+				<div class="row">
+					<div class="col-sm-6">
+						ユーザ画像
+					</div>
+
+					<div class="col-sm-6">
+						<h3 style="padding-bottom: 30px;"><%= @traveller.name %></h3>
+
+						<h4 style="padding-bottom: 30px;"><%= @traveller.trip_count %></h4>
+
+						<h4>料金</h4>
+						<%= @traveller.email %>
+
+						<br>
+						<br>
+
+					<% if current_traveller %>
+					<%= link_to '編集する', edit_traveller_registration_path(current_traveller) %>
+					<% end %>
+
+		</div>
+	</div>
+</div>

@@ -25,7 +25,7 @@
                 <%= link_to "spot new", new_traveller_spot_path(current_traveller) %>
               </li>
               <li class="nav-item">
-                mypage
+                <%= link_to "mypage", traveller_path(current_traveller) %>
               </li>
               <li class="nav-item">
                 <%= link_to "log in", traveller_session_path %>
@@ -46,7 +46,7 @@
           <nav class="navbar-right">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                mypage
+                about
               </li>
               <li class="nav-item">
                 <%= link_to "log in", traveller_session_path %>

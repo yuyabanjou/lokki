@@ -1,1 +1,34 @@
-top
+<div class="container">
+	<div class="row">
+		<h2><strong><%= link_to "spot", spots_path %></strong></h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th>スポット名</th>
+					<th>ジャンル</th>
+					<th>料金</th>
+					<th>営業時間</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @spots.each do |spot| %>
+				<tr>
+					<td>
+						<%= link_to spot_path(id: spot.id, traveller_id: spot.traveller_id) do %>
+						<%= attachment_image_tag spot, :image, :fill, 200, 180, :class => "img-rounded" %>
+						<% end %>
+					</td>
+					<td><%= spot.id %></td>
+					<td><%= spot.spot_name %></td>
+					<td><%= spot.genre %></td>
+					<td><%= spot.cost %></td>
+					<td><%= spot.business_hours %></td>
+				</tr>
+				<% end %>
+				<%= paginate @spots, class: "paginate" %>
+			</tbody>
+		</table>
+	</div>
+</div>

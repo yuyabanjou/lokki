@@ -6,19 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Traveller.create!(
-   email: 'test@test',
-   password: '111111',
-   name: 'test',
-   trip_count: '0',
-   entry_status: 'true'
-)
+# Traveller.create!(
+# 	[
+# 		{
+# 			email: 'test1@test1',
+# 			password: '111111',
+# 			name: 'test',
+# 			trip_count: '0',
+# 			entry_status: 'true'
+# 		}
+# 	]
+# )
 
 Spot.create!(
    genre: '観光地',
    spot_name: 'ヘルシンキ大聖堂',
    spot_text: 'ヘルシンキの小高い丘の上に建つ、白亜の大聖堂。大階段に腰を下ろし、夏の日差しをいっぱいに浴びながら街を見下ろすと、「バルト海の乙女」と称される美しい街並が見えます。どうしても見たかった、ここからの景色。南にはエテラ港があり、オレンジ色のテントが並ぶマーケット広場（Kauppatori）が広がっていて、旬のブルーベリーやラズベリー、果物や野菜、キノコや海の幸、トナカイの角のアクセサリーや白樺のこぶで作られたククサなどが並び、にぎやかな人であふれています。',
-   image: '',
+   image: Rails.root.join("db/sample1.jpg").open,
    cost: '4',
    business_hours: '月曜～土曜10：00-17:00、日曜11:00-15:00',
    stay_time: '約30分',

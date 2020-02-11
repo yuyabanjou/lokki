@@ -1,2 +1,37 @@
-<h1>Spots#index</h1>
-<p>Find me in app/views/spots/index.html.erb</p>
+<div class="container">
+	<div class="row">
+		<h2><strong>spot一覧画面</strong></h2>
+		<% if traveller_signed_in? %>
+		<%= link_to '新規登録ボタン', new_traveller_spot_path(current_traveller) %>
+		<% end %>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th>スポット名</th>
+					<th>ジャンル</th>
+					<th>料金</th>
+					<th>営業時間</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @spots.each do |spot| %>
+				<tr>
+					<td><%= spot.id %></td>
+					<td>
+					<%= link_to spot_path(id: spot.id, traveller_id: spot.traveller_id) do %>
+						<%= attachment_image_tag spot, :image, :fill, 200, 180, :class => "img-rounded" %>
+					<% end %>
+					</td>
+					<td><%= link_to spot.spot_name, spot_path(id: spot.id, traveller_id: spot.traveller_id) %></td>
+					<td><%= spot.genre %></td>
+					<td><%= spot.cost %></td>
+					<td><%= spot.business_hours %></td>
+				</tr>
+				<% end %>
+				<%= paginate @spots, class: "paginate" %>
+			</tbody>
+		</table>
+	</div>
+</div>

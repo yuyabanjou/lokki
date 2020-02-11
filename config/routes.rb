@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'travellers/show'
+  # resources :travellers, only: [:show]
+
   devise_for :travellers, controllers: {
   sessions:      'travellers/sessions',
   passwords:     'travellers/passwords',
@@ -9,8 +12,10 @@ Rails.application.routes.draw do
   root 'spots#top'
 
   resources :travellers do
-  	resources :spots, only: [:new, :create, :index, :show, :edit, :update]
+  	resources :spots, only: [:new, :create, :edit, :update, :destroy]
   end
+
+  resources :spots, only: [:index, :show]
 
 
 

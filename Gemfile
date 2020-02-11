@@ -72,11 +72,8 @@ gem 'jquery-rails'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-
-
-
-
-
+# ページャ 2020/02/09
+gem 'kaminari','~> 1.1.1'
 
 
 
