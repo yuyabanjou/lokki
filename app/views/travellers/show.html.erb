@@ -19,8 +19,28 @@
 						<br>
 						<br>
 
-					<% if current_traveller %>
+					<% if current_traveller.id == @traveller.id %>
 					<%= link_to '編集する', edit_traveller_registration_path(current_traveller) %>
+					<% end %>
+
+					<% @spots.each do |spot| %>
+						<hr>
+						<p><span>spot内容: </span><%=link_to spot.spot_name, spot_path(spot.id) %></p>
+					<% end %>
+					<!-- 追加 -->
+					<% @my_favorite_spots.each do |favorite_spot| %>
+						<hr>
+						<p><span>お気に入りspot内容: </span><%=link_to favorite_spot.spot_name, spot_path(favorite_spot.id) %></p>
+
+						<% if current_traveller.id == @traveller.id %>
+							<% favorite_spot_traveller = favorite_spot.favorite_spots.find_by(traveller_id: @traveller) %>
+							<%= form_for(favorite_spot_traveller, url:spot_favorite_spots_path(favorite_spot.id), method: :patch) do |f| %>
+								<%= f.text_field :favorite_spot_memo %>
+								<%= f.submit '更新' %>
+								<p><%=link_to "お気に入り解除", spot_favorite_spots_path(favorite_spot.id), method: :delete %></p>
+							<% end %>
+						<% end %>
+
 					<% end %>
 
 		</div>

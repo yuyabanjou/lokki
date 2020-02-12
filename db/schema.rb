@@ -10,11 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_115625) do
+ActiveRecord::Schema.define(version: 2020_02_12_071807) do
+
+  create_table "favorite_spots", force: :cascade do |t|
+    t.integer "traveller_id"
+    t.integer "spot_id"
+    t.text "favorite_spot_memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.integer "traveler_id"
+    t.string "title"
+    t.text "synopsis"
+    t.string "theme"
+    t.boolean "public_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "spots", force: :cascade do |t|
     t.integer "traveller_id"
-    t.string "genre"
+    t.integer "genre"
     t.string "spot_name"
     t.text "spot_text"
     t.string "image_id"

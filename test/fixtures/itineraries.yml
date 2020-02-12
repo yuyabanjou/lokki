@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  traveler_id: 1
+  title: MyString
+  synopsis: MyText
+  theme: MyString
+  public_status: false
+
+two:
+  traveler_id: 1
+  title: MyString
+  synopsis: MyText
+  theme: MyString
+  public_status: false

@@ -13,7 +13,7 @@
 		<%= f.text_area :spot_text %>
 
 		<h4>ジャンル</h4>
-		<%= f.text_field :genre %>
+		<%= f.select :genre, Spot.genres.map { |k, v| [k, k] } %>
 
 		<h4>料金</h4>
 		<%= f.text_field :cost %>

@@ -35,9 +35,20 @@
 						<br>
 						<br>
 
-					<% if current_traveller %>
-					<%= link_to '編集する', edit_traveller_spot_path(@spot.id) %>
-					<% end %>
+						<% if traveller_signed_in? %>
+					  	<% if @spot.favorited_by?(current_traveller) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+					  		<p><span>お気に入り解除: </span><%=link_to @spot.favorite_spots.count, spot_favorite_spots_path(@spot.id), method: :delete %></p>
+					  	<% else %>
+					  	<p><span>お気に入り登録: </span><%=link_to @spot.favorite_spots.count, spot_favorite_spots_path(@spot.id), method: :post %></p>
+					  	<% end %>
+
+					  	<% if current_traveller.id == @spot.traveller_id %>
+							<%= link_to '編集する', edit_traveller_spot_path(@spot.id) %>
+							<% end %>
+
+					  <% else %>
+					  	<p><span>お気に入り数: </span><%= @spot.favorite_spots.count %></p>
+					  <% end %>
 
 		</div>
 	</div>

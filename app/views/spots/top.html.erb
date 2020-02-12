@@ -15,12 +15,12 @@
 			<tbody>
 				<% @spots.each do |spot| %>
 				<tr>
+					<td><%= spot.id %></td>
 					<td>
 						<%= link_to spot_path(id: spot.id, traveller_id: spot.traveller_id) do %>
 						<%= attachment_image_tag spot, :image, :fill, 200, 180, :class => "img-rounded" %>
 						<% end %>
 					</td>
-					<td><%= spot.id %></td>
 					<td><%= spot.spot_name %></td>
 					<td><%= spot.genre %></td>
 					<td><%= spot.cost %></td>

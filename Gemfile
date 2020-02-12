@@ -75,6 +75,8 @@ gem "refile-mini_magick"
 # ページャ 2020/02/09
 gem 'kaminari','~> 1.1.1'
 
+# binding.pry
+gem 'pry-rails'
 
 
 
