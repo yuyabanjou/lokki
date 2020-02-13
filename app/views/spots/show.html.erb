@@ -1,55 +1,52 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-			<h2><strong>スポット 詳細画面</strong></h2>
-
-				<div class="row">
+			<div class="row">
 					<div class="col-sm-6">
-						<%= attachment_image_tag @spot, :image, :fill, 100, 100 %>
+						<%= attachment_image_tag @spot, :image, :fill, 400, 300 %>
+
+						<h4 style="padding-top: 30px;">料金</h4>
+						<p style="padding-bottom: 10px;"><%= @spot.cost %></p>
+
+						<h4 style="padding-bottom: 5px;">営業時間</h4>
+						<p style="padding-bottom: 10px;"><%= @spot.business_hours %></p>
+
+						<h4 style="padding-bottom: 5px;">位置情報</h4>
+						<p style="padding-bottom: 10px;"><%= @spot.position %></p>
+
 					</div>
 
 					<div class="col-sm-6">
-						<h3 style="padding-bottom: 30px;"><%= @spot.spot_name %></h3>
+						<% if traveller_signed_in? %>
+							<% if current_traveller.id == @spot.traveller_id %>
+								<h4><%= link_to '編集する', edit_traveller_spot_path(@spot.id) %></h4>
+							<% end %>
+						<% end %>
 
-						<p style="padding-bottom: 30px;"><%= @spot.spot_text %></p>
+						<h2 style="padding-bottom: 5px;"><%= @spot.public_status %></h2>
 
-						<h4 style="padding-bottom: 30px;"><%= @spot.genre %></h4>
+						<h3 style="padding-bottom: 5px;"><%= @spot.spot_name %> / <%= @spot.genre %></h3>
 
-						<h4>料金</h4>
-						<%= @spot.cost %>
+						<p style="padding-bottom: 10px;"><%= @spot.spot_text %></p>
 
-						<h4>営業時間</h4>
-						<%= @spot.business_hours %>
+						<h4 style="padding-bottom: 5px;">目安滞在時間</h4>
+						<p style="padding-bottom: 10px;"><%= @spot.stay_time %></p>
 
-						<h4>目安滞在時間</h4>
-						<%= @spot.stay_time %>
+						<h4 style="padding-bottom: 5px;">おすすめのアクセス方法</h4>
+						<p style="padding-bottom: 10px;"><%= @spot.access %></p>
 
-						<h4>位置情報</h4>
-						<%= @spot.position %>
-
-						<h4>おすすめのアクセス方法</h4>
-						<%= @spot.access %>
-
-						<h4>公開ステータス</h4>
-						<%= @spot.public_status %>
-						<br>
-						<br>
+						<div id="favorite_spot_button_<%= @spot.id %>">
+							<%= render partial: 'favorite_spots/favorite_spot', locals: {spot: @spot} %>
+						</div>
 
 						<% if traveller_signed_in? %>
-					  	<% if @spot.favorited_by?(current_traveller) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
-					  		<p><span>お気に入り解除: </span><%=link_to @spot.favorite_spots.count, spot_favorite_spots_path(@spot.id), method: :delete %></p>
-					  	<% else %>
-					  	<p><span>お気に入り登録: </span><%=link_to @spot.favorite_spots.count, spot_favorite_spots_path(@spot.id), method: :post %></p>
-					  	<% end %>
-
-					  	<% if current_traveller.id == @spot.traveller_id %>
-							<%= link_to '編集する', edit_traveller_spot_path(@spot.id) %>
-							<% end %>
-
 					  <% else %>
 					  	<p><span>お気に入り数: </span><%= @spot.favorite_spots.count %></p>
 					  <% end %>
+					</div>
 
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

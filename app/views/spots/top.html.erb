@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<h2><strong><%= link_to "spot", spots_path %></strong></h2>
-		<table class="table table-striped">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th></th>
@@ -21,7 +21,7 @@
 						<%= attachment_image_tag spot, :image, :fill, 200, 180, :class => "img-rounded" %>
 						<% end %>
 					</td>
-					<td><%= spot.spot_name %></td>
+					<td><%= link_to spot.spot_name, spot_path(id: spot.id, traveller_id: spot.traveller_id) %></td>
 					<td><%= spot.genre %></td>
 					<td><%= spot.cost %></td>
 					<td><%= spot.business_hours %></td>

@@ -17,7 +17,10 @@
 
           <% if traveller_signed_in? %>
           <nav class="navbar-header">
-            <%= link_to "logo", root_path %><br>login now
+            <%=link_to root_path do %>
+              <%= image_tag 'logo.png', size: '300x90' %>
+            <% end %>
+            <br>login now
           </nav>
           <nav class="navbar-right">
             <ul class="navbar-nav mr-auto">
@@ -73,10 +76,11 @@
     <div style="margin-bottom: 20px"></div>
 
     </div>
+
     <footer id="footer">
       <div class="container-fluid text-center copyrights">
         <div class="col-md-8 col-md-offset-2">
-          <p style="margin-top: 20px; color: FFFF;">&copy; LOKKI. Designed by yuyabanjo</p>
+          <p style="padding-top: 20px; color: FFFF;">&copy; LOKKI. Designed by yuyabanjo</p>
         </div>
       </div>
     </footer>

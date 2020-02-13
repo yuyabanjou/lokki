@@ -21,14 +21,67 @@ Traveller.create!(
 			name: 'test1',
 			trip_count: '5',
 			entry_status: 'true'
+		},
+		{
+			email: 'tanaka@tanaka',
+			password: '111111',
+			name: 'tanaka',
+			trip_count: '12',
+			entry_status: 'true'
+		},
+		{
+			email: 'miyagawa@miyagawa',
+			password: '111111',
+			name: 'miyagawa',
+			trip_count: '500',
+			entry_status: 'true'
+		},
+		{
+			email: 'hashimoto@hashimoto',
+			password: '111111',
+			name: 'hashimoto',
+			trip_count: '0',
+			entry_status: 'true'
+		},
+		{
+			email: 'furui@furui',
+			password: '111111',
+			name: 'furui',
+			trip_count: '0',
+			entry_status: 'true'
+		},
+		{
+			email: 'gotou@gotou',
+			password: '111111',
+			name: 'gotou',
+			trip_count: '3',
+			entry_status: 'true'
 		}
 	]
 )
 
+# Spot.create!(
+# 	[
+# 		{
+# 			genre: 'その他',
+# 			spot_name: '未登録',
+# 			spot_text: '',
+# 			image: '',
+# 			cost: '',
+# 			business_hours: '',
+# 			stay_time: '',
+# 			position: '',
+# 			access: '',
+# 			public_status: '非公開',
+# 			traveller_id: 1,
+# 		}
+# 	]
+# )
+
 Spot.create!(
 	[
 		{
-			genre: '観光',
+			genre: '観光地',
 			spot_name: 'ヘルシンキ大聖堂',
 			spot_text: 'ヘルシンキの小高い丘の上に建つ、白亜の大聖堂。大階段に腰を下ろし、夏の日差しをいっぱいに浴びながら街を見下ろすと、「バルト海の乙女」と称される美しい街並が見えます。どうしても見たかった、ここからの景色。南にはエテラ港があり、オレンジ色のテントが並ぶマーケット広場（Kauppatori）が広がっていて、旬のブルーベリーやラズベリー、果物や野菜、キノコや海の幸、トナカイの角のアクセサリーや白樺のこぶで作られたククサなどが並び、にぎやかな人であふれています。',
 			image: Rails.root.join("db/sample1.jpg").open,
@@ -37,11 +90,11 @@ Spot.create!(
 			stay_time: '約30分',
 			position: '',
 			access: 'ヘルシンキ中央駅から東方向に徒歩約5分～10分',
-			public_status: '公開',
+			public_status: '公開中',
 			traveller_id: 1
 		},
 		{
-			genre: '観光',
+			genre: '観光地',
 			spot_name: 'テンペリアウキオ教会',
 			spot_text: 'テンペリアウキオ教会は、フィンランドのヘルシンキ市・トーロにある、フィンランド福音ルター派教会に属しているキリスト教会である。ティモ・スオマライネン とトゥオモ・スオマライネン の兄弟によって設計され、1969年に完成した。岩の教会とも呼ばれる。',
 			image: Rails.root.join("db/sample2.jpg").open,
@@ -50,7 +103,7 @@ Spot.create!(
 			stay_time: '約30分',
 			position: '',
 			access: '中央駅から３Tトラムに乗って、Sammonkatu 駅で降りてすぐ',
-			public_status: '公開',
+			public_status: '公開中',
 			traveller_id: 2
 		}
 	]

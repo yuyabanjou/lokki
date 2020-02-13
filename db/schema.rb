@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_071807) do
     t.string "stay_time"
     t.string "position"
     t.string "access"
-    t.string "public_status"
+    t.boolean "public_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

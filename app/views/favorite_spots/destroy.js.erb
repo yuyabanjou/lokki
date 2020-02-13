@@ -1,0 +1,1 @@
+$('#favorite_spot_button_<%= @spot.id %>').html("<%= j(render partial: 'favorite_spots/favorite_spot', locals: {spot: @spot}) %>");
