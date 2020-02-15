@@ -60,24 +60,6 @@ Traveller.create!(
 	]
 )
 
-# Spot.create!(
-# 	[
-# 		{
-# 			genre: 'その他',
-# 			spot_name: '未登録',
-# 			spot_text: '',
-# 			image: '',
-# 			cost: '',
-# 			business_hours: '',
-# 			stay_time: '',
-# 			position: '',
-# 			access: '',
-# 			public_status: '非公開',
-# 			traveller_id: 1,
-# 		}
-# 	]
-# )
-
 Spot.create!(
 	[
 		{

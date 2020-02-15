@@ -1,7 +1,7 @@
 class CreateItineraries < ActiveRecord::Migration[5.2]
   def change
     create_table :itineraries do |t|
-      t.integer :traveler_id
+      t.integer :traveller_id
       t.string :title
       t.text :synopsis
       t.string :theme

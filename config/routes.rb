@@ -15,11 +15,13 @@ Rails.application.routes.draw do
 
   resources :travellers do
   	resources :spots, only: [:new, :create, :edit, :update, :destroy]
-    resources :itineraries, only: [:new, :create, :edit, :update, :destroy]
+    resources :itineraries, only: [:new, :create, :edit, :update, :destroy, :index, :show] do
+      resources :itinerary_spots, only: [:new, :create, :edit, :update, :destroy]
+    end
   end
 
   resources :spots, only: [:index, :show]
-  resources :itineraries, only: [:index, :show]
+  # resources :itineraries, only: [:index, :show]
 
   resources :spots do
     resource :favorite_spots, only: [:create, :update, :destroy]

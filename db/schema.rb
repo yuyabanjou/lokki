@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_071807) do
+ActiveRecord::Schema.define(version: 2020_02_15_045524) do
 
   create_table "favorite_spots", force: :cascade do |t|
     t.integer "traveller_id"
@@ -21,11 +21,26 @@ ActiveRecord::Schema.define(version: 2020_02_12_071807) do
   end
 
   create_table "itineraries", force: :cascade do |t|
-    t.integer "traveler_id"
+    t.integer "traveller_id"
     t.string "title"
     t.text "synopsis"
     t.string "theme"
     t.boolean "public_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "itinerary_spots", force: :cascade do |t|
+    t.integer "itinerary_id"
+    t.integer "spot_id"
+    t.date "date"
+    t.text "itinerary_spot_memo"
+    t.text "reference_url"
+    t.integer "moving_genre"
+    t.text "moving_memo"
+    t.integer "fare"
+    t.time "arrival_plan_time"
+    t.time "start_plan_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

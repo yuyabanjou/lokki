@@ -6,6 +6,9 @@ class Spot < ApplicationRecord
 	# お気に入り機能
 	has_many :favorite_spots
 
+	# しおりスポット登録機能
+	has_many :itinerary_spots
+
 	def favorited_by?(traveller)
 		favorite_spots.where(traveller_id: traveller.id).exists?
   end

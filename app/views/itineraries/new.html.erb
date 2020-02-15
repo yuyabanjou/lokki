@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<h2><strong>しおりタイトル</strong></h2>
+		<h2><strong>旅のタイトル</strong></h2>
 
 		<%= form_for([@traveller, @itinerary]) do |f| %>
 
@@ -16,10 +16,7 @@
 		<label><%= f.radio_button :public_status, :true %>公開</label>
 		<label><%= f.radio_button :public_status, :false %>非公開</label>
 
-		<br>
-		<br>
-
-		<%= f.submit '新規登録' %>
+		<%= f.submit '予定を立てる' %>
 
 		<% end %>
 

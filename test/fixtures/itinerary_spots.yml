@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plan_id: 1
+  spot_id: 1
+  date: 2020-02-15
+  itinerary_spot_memo: MyText
+  reference_url: 2020-02-15 04:49:34
+  moving_genre: MyString
+  moving_memo: MyText
+  fare: 1
+  arrival_plan_time: 2020-02-15 04:49:34
+  start_plan_time: 2020-02-15 04:49:34
+
+two:
+  plan_id: 1
+  spot_id: 1
+  date: 2020-02-15
+  itinerary_spot_memo: MyText
+  reference_url: 2020-02-15 04:49:34
+  moving_genre: MyString
+  moving_memo: MyText
+  fare: 1
+  arrival_plan_time: 2020-02-15 04:49:34
+  start_plan_time: 2020-02-15 04:49:34

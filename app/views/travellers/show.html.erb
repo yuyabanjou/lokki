@@ -23,6 +23,13 @@
 					</div>
 
 					<div class="col-sm-8">
+
+						<h3 style="padding-top: 5px;">しおり一覧</h3>
+						<% @itineraries.each do |itinerary| %>
+							<hr>
+							<p><span>Plan Name: </span><%=link_to itinerary.title, traveller_itinerary_path(itinerary.id) %></p>
+						<% end %>
+
 						<h3 style="padding-top: 5px;">投稿Spot</h3>
 						<% @spots.each do |spot| %>
 							<hr>
