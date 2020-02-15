@@ -1,0 +1,59 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<h2 style="padding-bottom: 30px;"><strong>マイページ</strong></h2>
+
+				<div class="row">
+					<div class="col-sm-4">
+						<h3 style="padding-bottom: 5px;">ニックネーム</h3>
+						<h4 style="padding-bottom: 10px;"><%= @traveller.name %></h4>
+
+						<h3 style="padding-bottom: 5px;">渡航回数</h3>
+						<h4 style="padding-bottom: 10px;"><%= @traveller.trip_count %></h4>
+
+						<h3 style="padding-bottom: 5px;">メールアドレス</h3>
+						<h4 style="padding-bottom: 10px;"><%= @traveller.email %></h4>
+
+						<br>
+
+						<% if current_traveller.id == @traveller.id %>
+							<%= link_to '編集する', edit_traveller_registration_path(current_traveller) %>
+						<% end %>
+
+					</div>
+
+					<div class="col-sm-8">
+
+						<h3 style="padding-top: 5px;">しおり一覧</h3>
+						<% @itineraries.each do |itinerary| %>
+							<hr>
+							<p><span>Plan Name: </span><%=link_to itinerary.title, traveller_itinerary_path(itinerary.id) %></p>
+						<% end %>
+
+						<h3 style="padding-top: 5px;">投稿Spot</h3>
+						<% @spots.each do |spot| %>
+							<hr>
+							<p><span>Spot Name: </span><%=link_to spot.spot_name, spot_path(spot.id) %></p>
+						<% end %>
+
+						<h3 style="padding-top: 5px;">お気に入りSpot</h3>
+						<% @my_favorite_spots.each do |favorite_spot| %>
+							<hr>
+							<p><span>Spot Name: </span><%=link_to favorite_spot.spot_name, spot_path(favorite_spot.id) %></p>
+
+							<% if current_traveller.id == @traveller.id %>
+								<% favorite_spot_traveller = favorite_spot.favorite_spots.find_by(traveller_id: @traveller) %>
+								<%= form_for(favorite_spot_traveller, url:spot_favorite_spots_path(favorite_spot.id), method: :patch) do |f| %>
+									<%= f.text_area :favorite_spot_memo %>
+									<%= f.submit '更新' %>
+									<p><%=link_to "お気に入り解除", spot_favorite_spots_path(favorite_spot.id, :para => "mypage"), method: :delete, data: {confirm: "登録したメモも削除されますが宜しいですか？"} %></p>
+								<% end %>
+							<% end %>
+
+						<% end %>
+
+					</div>
+				</div>
+		</div>
+	</div>
+</div>

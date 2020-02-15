@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+$("tbody").append("<%= j(render("tr", itinerary_spot: @itinerary_spot)) %>");
+<% elsif @status == 'fail' %>
+alert('error!');
+<% end %>
+$("#itinerary_spot-modal").modal("hide");

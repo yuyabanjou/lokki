@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-10">
+			<h2><strong>旅のタイトル</strong></h2>
+
+				<div class="row">
+					<div class="col-sm-6">
+						<h3 style="padding-bottom: 30px;"><%= @itinerary.title %></h3>
+
+						<h4 style="padding-bottom: 30px;"><%= @itinerary.theme %></h4>
+
+						<p style="padding-bottom: 30px;"><%= @itinerary.synopsis %></p>
+
+
+						<h4>公開ステータス</h4>
+						<%= @itinerary.public_status %>
+
+					<% if current_traveller.id == @itinerary.traveller_id %>
+					<%= link_to '編集する', edit_traveller_itinerary_path(@itinerary.id) %>
+					<% end %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
