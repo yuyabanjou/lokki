@@ -33,23 +33,12 @@
 					<th>移動方法</th>
 					<th>メモ</th>
 					<th>spot</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<% @itinerary.itinerary_spots.each do |itinerary_spot| %>
-				<tr>
-					<td><%= itinerary_spot.date %></td>
-					<td>
-						<%= itinerary_spot.arrival_plan_time %>〜<%= itinerary_spot.start_plan_time %>
-					</td>
-					<td>
-						<%= itinerary_spot.moving_genre %><br>
-						運賃:<%= itinerary_spot.fare %><br>
-						メモ:<%= itinerary_spot.moving_memo %>
-					</td>
-					<td><%= itinerary_spot.itinerary_spot_memo %></td>
-					<td><%= link_to itinerary_spot.spot_name, spot_path(id: itineary_spot.spot.id, traveller_id: itineary_spot.traveller_id) %></td>
-				</tr>
+					<%= render partial: "itinerary_spots/tr", locals: { itinerary_spot: itinerary_spot } %>
 				<% end %>
 			</tbody>
 		</table>
