@@ -22,11 +22,17 @@ class ItinerariesController < ApplicationController
 	end
 
 	def update
-
+		@itinerary = Itinerary.find(params[:id])
+		@traveller = current_traveller
+    @itinerary.update(itinerary_params)
+    redirect_to edit_traveller_itinerary_path(id: @itinerary.id, traveller_id: current_traveller.id)
 	end
 
 	def destroy
-
+		itinerary = Itinerary.find(params[:id])
+		traveller = current_traveller
+		itinerary.destroy
+		redirect_to travellers_show_path(traveller.id)
 	end
 
 	def show

@@ -1,23 +1,26 @@
 <div class="modal-dialog modal-dialog-centered modal-lg">
-	<div class="modal-content">
-		<%= form_for([@itinerary, @itinerary_spot], url:traveller_itinerary_itinerary_spots_path(current_traveller.id, @itinerary.id), remote: true) do |f| %>
-		<div class="modal_header">
-			<h4 class="modal-title" style="padding-left: 10px;">new spot</h4>
-		</div>
-		<div class="modal_body" style="padding-left: 10px;">
-				<%= f.date_select :date %><br>
-				<%= f.time_select :arrival_plan_time %>~<%= f.time_select :start_plan_time %><br>
-				<h4>移動方法</h4>
-				<%= f.select :moving_genre, ItinerarySpot.moving_genres.map { |k, v| [k, k] } %><%= f.text_field :fare %>€<br>
-				<h6>memo</h6>
-				<%= f.text_area :moving_memo %><br>
-				<%= f.text_area :itinerary_spot_memo %>
-
-				<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name %>
-		</div>
-		<div class="modal_footer actions">
-				<%= f.submit '登録', class: "btn btn-primary" %>
-		</div>
-	  <% end %>
-	</div>
-</div>
+  <div class="modal-content">
+  	<%= form_for([@itinerary, @itinerary_spot], url:traveller_itinerary_itinerary_spots_path(current_traveller.id, @itinerary.id), remote: true) do |f| %>
+    <div class="modal-header">
+      <h5 class="modal-title">new spot</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div><!-- /.modal-header -->
+    <div class="modal-body">
+      <%= f.date_select :date %><br>
+			<%= f.time_select :arrival_plan_time %>~<%= f.time_select :start_plan_time %><br>
+			<h4>移動方法</h4>
+			<%= f.select :moving_genre, ItinerarySpot.moving_genres.map { |k, v| [k, k] } %><%= f.text_field :fare %>€<br>
+			<h6>memo</h6>
+			<%= f.text_area :moving_memo %><br>
+			<%= f.text_area :itinerary_spot_memo %>
+			<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name %>
+    </div><!-- /.modal-body -->
+    <div class="modal-footer">
+    	<%= f.submit '登録', class: "btn btn-primary" %>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+    </div><!-- /.modal-footer -->
+    <% end %>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

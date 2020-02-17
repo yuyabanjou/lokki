@@ -8,6 +8,6 @@
 		</td>
 		<td><%= itinerary_spot.itinerary_spot_memo %></td>
 		<td><%#= link_to itinerary_spot.spot_name, spot_path(id: itineary_spot.spot.id, traveller_id: itineary_spot.traveller_id) %></td>
-		<td><%= link_to "削除", traveller_itinerary_itinerary_spot_path(itinerary_id: @itinerary.id, id: itinerary_spot.id), class: 'btn btn-sm btn-primary', method: :delete %></td>
+		<td><%= link_to "削除", traveller_itinerary_itinerary_spot_path(itinerary_id: @itinerary.id, id: itinerary_spot.id), class: 'btn btn-sm btn-danger', method: :delete %></td>
 		<td><%= link_to "編集", edit_traveller_itinerary_itinerary_spot_path(itinerary_id: @itinerary.id, id: itinerary_spot.id), class: 'btn btn-sm btn-primary', remote: true %></td>
 	</tr>

@@ -10,6 +10,9 @@ class ItinerarySpotsController < ApplicationController
 	def create
 		@itinerary = Itinerary.find(params[:itinerary_id])
 		@itinerary_spot = @itinerary.itinerary_spots.new(itinerary_spot_params)
+		binding.pry
+		# date = if文を書く
+		@itinerary_spot.assign_attributes({ arrival_plan_time: Time.parse(itinerary_spot_params["date(1i)"] + itinerary_spot_params["date(2i)"] + itinerary_spot_params["date(3i)"] + itinerary_spot_params["arrival_plan_time(4i)"] + itinerary_spot_params["arrival_plan_time(5i)"]) })
 		respond_to do |format|
 			if @itinerary_spot.save!
 				format.html { redirect_to @itinerary_spot }
