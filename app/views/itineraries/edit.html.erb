@@ -31,16 +31,16 @@
 		</div>
 		<div id="itinerary_spot-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 
-		<%= link_to "削除する", traveller_itinerary_path(itinerary_id: @itinerary.id), class: 'btn btn-lg btn-danger', method: :delete %>
+		<div><%= link_to "削除する", traveller_itinerary_path(itinerary_id: @itinerary.id), class: 'btn btn-lg btn-danger', method: :delete %></div>
 
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>日付</th>
 					<th>時間</th>
 					<th>移動方法</th>
 					<th>メモ</th>
 					<th>spot</th>
+					<th></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -53,3 +53,4 @@
 
 	</div>
 </div>
+

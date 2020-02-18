@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_02_15_045524) do
     t.integer "moving_genre"
     t.text "moving_memo"
     t.integer "fare"
-    t.time "arrival_plan_time"
-    t.time "start_plan_time"
+    t.datetime "arrival_plan_time"
+    t.datetime "start_plan_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

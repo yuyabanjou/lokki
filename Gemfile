@@ -78,5 +78,8 @@ gem 'kaminari','~> 1.1.1'
 # binding.pry
 gem 'pry-rails'
 
-
+# カレンダー入力 2020/02/18
+gem "bootstrap4-datetime-picker-rails"
+gem 'momentjs-rails'
+gem "font-awesome-rails"
 

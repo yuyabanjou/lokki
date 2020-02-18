@@ -1,23 +1,82 @@
 <div class="modal-dialog modal-dialog-centered modal-lg">
-	<div class="modal-content">
-		<%= form_for([@itinerary, @itinerary_spot], url:traveller_itinerary_itinerary_spot_path(current_traveller.id, @itinerary.id), remote: true) do |f| %>
-		<div class="modal_header">
-			<h4 class="modal-title" style="padding-left: 10px;">edit spot</h4>
-		</div>
-		<div class="modal_body" style="padding-left: 10px;">
-				<%= f.date_select :date %><br>
-				<%= f.time_select :arrival_plan_time %>~<%= f.time_select :start_plan_time %><br>
-				<h4>移動方法</h4>
-				<%= f.select :moving_genre, ItinerarySpot.moving_genres.map { |k, v| [k, k] } %><%= f.text_field :fare %>€<br>
-				<h6>memo</h6>
-				<%= f.text_area :moving_memo %><br>
-				<%= f.text_area :itinerary_spot_memo %>
+  <div class="modal-content">
+  	<%= form_for([@itinerary, @itinerary_spot], url:traveller_itinerary_itinerary_spot_path(current_traveller.id, @itinerary.id), remote: true) do |f| %>
+    <div class="modal-header">
+      <h4 class="modal-title">new spot</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div><!-- /.modal-header -->
+    <div class="modal-body">
+    	<div class="container-fluid">
+    		<div class="row">
+    			<div class="col-md-6">
+						<div class="input-group" data-target-input="nearest">
+							<%= f.text_field :arrival_plan_time, id: "arrival_plan_time", class: "form-control datepicker", data: { target: '#arrival_plan_time'}, placeholder: "到着" %>
+							<div class="input-group-append" data-target="#arrival_plan_time" data-toggle="datetimepicker">
+								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 ml-auto">
+						<div class="input-group" data-target-input="nearest">
+							<%= f.text_field :start_plan_time, id: "start_plan_time", class: "form-control datepicker", data: { target: '#start_plan_time'}, placeholder: "出発" %>
+							<div class="input-group-append" data-target="#start_plan_time" data-toggle="datetimepicker">
+								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<h5>移動</h5>
+				<div class="row">
+					<div class="col-md-3">
+						<%= f.select :moving_genre, ItinerarySpot.moving_genres.map { |k, v| [k, k] }, class: "form-control" %>
+					</div>
+					<div class="col-md-3 ml-auto">
+						<%= f.text_field :fare, placeholder: "€", class: "form-control" %>
+					</div>
+					<div class="col-md-6 ml-auto">
+						<%= f.text_area :moving_memo, placeholder: "移動メモ", class: "form-control" %>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6">
+								<h5>お気に入りからスポットを選ぶ</h5>
+								<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name, class: "form-control" %>
+							</div>
+							<div class="col-sm-6">
+								<h5>memo</h5>
+								<%= f.text_area :itinerary_spot_memo, placeholder: "メモ", class: "form-control" %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    </div><!-- /.modal-body -->
+    <div class="modal-footer">
+    	<%= f.submit '更新', class: "btn btn-primary" %>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+    </div><!-- /.modal-footer -->
+    <% end %>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 
-				<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name %>
-		</div>
-		<div class="modal_footer actions">
-				<%= f.submit '更新', class: "btn btn-primary" %>
-		</div>
-	  <% end %>
-	</div>
-</div>
+<!-- _new_form.html.erbと共通化できる、下記JSは外出しする -->
+<script type="text/javascript">
+	$(function () {
+	  $('#arrival_plan_time').datetimepicker();
+	  $('#start_plan_time').datetimepicker({
+	      useCurrent: false
+	  });
+	  $("#arrival_plan_time").on("change.datetimepicker", function (e) {
+	      $('#start_plan_time').datetimepicker('minDate', e.date);
+	  });
+	  $("#start_plan_time").on("change.datetimepicker", function (e) {
+	      $('#arrival_plan_time').datetimepicker('maxDate', e.date);
+	  });
+	});
+</script>

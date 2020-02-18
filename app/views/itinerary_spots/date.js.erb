@@ -1,0 +1,12 @@
+$(function () {
+  $('#arrival_plan_time').datetimepicker();
+  $('#start_plan_time').datetimepicker({
+      useCurrent: false
+  });
+  $("#arrival_plan_time").on("change.datetimepicker", function (e) {
+      $('#start_plan_time').datetimepicker('minDate', e.date);
+  });
+  $("#start_plan_time").on("change.datetimepicker", function (e) {
+      $('#arrival_plan_time').datetimepicker('maxDate', e.date);
+  });
+});

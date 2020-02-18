@@ -10,9 +10,9 @@ class ItinerarySpotsController < ApplicationController
 	def create
 		@itinerary = Itinerary.find(params[:itinerary_id])
 		@itinerary_spot = @itinerary.itinerary_spots.new(itinerary_spot_params)
-		binding.pry
-		# date = if文を書く
-		@itinerary_spot.assign_attributes({ arrival_plan_time: Time.parse(itinerary_spot_params["date(1i)"] + itinerary_spot_params["date(2i)"] + itinerary_spot_params["date(3i)"] + itinerary_spot_params["arrival_plan_time(4i)"] + itinerary_spot_params["arrival_plan_time(5i)"]) })
+		# assign_attributesで@itinerary_spotの中身を置き換え、Time.parseで文字列をtime型に変換、.rjust(2, "0")で２桁０埋め
+		# @itinerary_spot.assign_attributes({ arrival_plan_time: DateTime.parse(itinerary_spot_params["date(1i)"] + itinerary_spot_params["date(2i)"].rjust(2, "0") + itinerary_spot_params["date(3i)"].rjust(2, "0") + itinerary_spot_params["arrival_plan_time(4i)"] + itinerary_spot_params["arrival_plan_time(5i)"]), start_plan_time: DateTime.parse(itinerary_spot_params["date(1i)"] + itinerary_spot_params["date(2i)"].rjust(2, "0") + itinerary_spot_params["date(3i)"].rjust(2, "0") + itinerary_spot_params["start_plan_time(4i)"] + itinerary_spot_params["start_plan_time(5i)"]) })
+		# binding.pry
 		respond_to do |format|
 			if @itinerary_spot.save!
 				format.html { redirect_to @itinerary_spot }
