@@ -31,7 +31,7 @@
 				<h5>移動</h5>
 				<div class="row">
 					<div class="col-md-3">
-						<%= f.select :moving_genre, ItinerarySpot.moving_genres.map { |k, v| [k, k] }, class: "form-control" %>
+						<%= f.select :moving_genre, ItinerarySpot.moving_genres.map { |k, v| [k, k] }, {prompt: "選択してください"}, class: "form-control" %>
 					</div>
 					<div class="col-md-3 ml-auto">
 						<%= f.text_field :fare, placeholder: "€", class: "form-control" %>
@@ -45,12 +45,17 @@
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6">
-								<h5>お気に入りからスポットを選ぶ</h5>
-								<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name, class: "form-control" %>
+								<h5>スポット選択</h5>
+								<div class="row text-center">
+									<div class="col-sm-6"><h6 class="fav_spot_btn">お気に入りスポット</h6></div>
+									<div class="col-sm-6"><h6 class="my_spot_btn">投稿したスポット</h6></div>
+								</div>
+								<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name, {include_blank: true}, class: "form-control fav_spot" %>
+								<%= f.collection_select :spot_id, @spots, :id, :spot_name, {include_blank: true}, class: "form-control my_spot" %>
 							</div>
 							<div class="col-sm-6">
 								<h5>memo</h5>
-								<%= f.text_area :itinerary_spot_memo, placeholder: "メモ", class: "form-control" %>
+								<%= f.text_area :itinerary_spot_memo, placeholder: "メモ",class: "form-control" %>
 							</div>
 						</div>
 					</div>
@@ -78,5 +83,28 @@
 	  $("#start_plan_time").on("change.datetimepicker", function (e) {
 	      $('#arrival_plan_time').datetimepicker('maxDate', e.date);
 	  });
+
+// スポット登録のプルダウンを表示・非表示させる
+
+	  $('.my_soot').hide();
+
+	  $(".fav_spot_btn").on("click", function(){
+	  	$(".my_spot_btn").css('color', 'rgb(0, 0, 255)');
+	  	$(".fav_spot_btn").css('color', 'rgb(255, 0, 0)');
+			$('.my_spot').hide();
+			$('.my_spot').prop('disabled', true);
+			$('.fav_spot').show();
+			$('.fav_spot').prop('disabled', false);
+	  });
+
+	  $(".my_spot_btn").on("click", function(){
+	  	$(".my_spot_btn").css('color', 'rgb(255, 0, 0)');
+	  	$(".fav_spot_btn").css('color', 'rgb(0, 0, 255)');
+			$('.fav_spot').hide();
+			$('.fav_spot').prop('disabled', true);
+			$('.my_spot').show();
+			$('.my_spot').prop('disabled', false);
+	  });
+
 	});
 </script>

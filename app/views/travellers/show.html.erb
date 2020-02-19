@@ -1,18 +1,15 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10">
-			<h2 style="padding-bottom: 30px;"><strong>マイページ</strong></h2>
+			<h2 style="padding-bottom: 30px;"><strong><%= @traveller.name %></strong>&thinsp;さん&thinsp;のページ</h2>
 
 				<div class="row">
 					<div class="col-sm-4">
-						<h5 style="padding-bottom: 5px;">ニックネーム</h3>
-						<h4 style="padding-bottom: 10px;"><%= @traveller.name %></h4>
+						<h5 style="padding-bottom: 5px;"><%= @traveller.name %>&thinsp;さん&thinsp;の渡航回数</h3>
+						<h4 style="padding-bottom: 10px;"><%= @traveller.trip_count %>&thinsp;回</h4>
 
-						<h5 style="padding-bottom: 5px;">渡航回数</h3>
-						<h4 style="padding-bottom: 10px;"><%= @traveller.trip_count %></h4>
-
-						<h5 style="padding-bottom: 5px;">メールアドレス</h3>
-						<h4 style="padding-bottom: 10px;"><%= @traveller.email %></h4>
+						<h5 style="padding-bottom: 5px;"><%= @traveller.name %>&thinsp;さん&thinsp;の投稿数</h3>
+						<h4 style="padding-bottom: 10px;"><%= @spots_count %>&thinsp;spots</h4>
 
 						<br>
 

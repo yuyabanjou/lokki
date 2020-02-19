@@ -4,4 +4,6 @@ class Itinerary < ApplicationRecord
 
 	has_many :itinerary_spots
 
+	enum public_status: {非公開: false, 公開中: true}
+
 end

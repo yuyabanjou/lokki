@@ -34,11 +34,13 @@
 						<h4 style="padding-bottom: 5px;">おすすめのアクセス方法</h4>
 						<p style="padding-bottom: 10px;"><%= @spot.access %></p>
 
+						<% if traveller_signed_in? %>
 						<div id="favorite_spot_button_<%= @spot.id %>">
 							<%= render partial: 'favorite_spots/favorite_spot', locals: {spot: @spot} %>
 						</div>
-
-						<% if traveller_signed_in? %>
+						<div>
+							<p>投稿者：<%= link_to @spot.traveller.name, traveller_path(@spot.traveller_id) %>&thinsp;さん</p>
+						</div>
 					  <% else %>
 					  	<p><span>お気に入り数: </span><%= @spot.favorite_spots.count %></p>
 					  <% end %>
