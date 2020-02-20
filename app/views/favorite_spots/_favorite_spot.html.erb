@@ -3,9 +3,15 @@
 	<% if current_traveller.id == @spot.traveller_id %>
 	<% else %>
 	  <% if @spot.favorited_by?(current_traveller) %>
-	  	<p><span>お気に入り解除: </span><%=link_to @spot.favorite_spots.count, spot_favorite_spots_path(@spot.id), method: :delete, remote: true,  data: {confirm: "登録したメモも削除されますが宜しいですか？"} %></p>
+	  	<span>お気に入り解除：</span>
+	  	<%=link_to spot_favorite_spots_path(@spot.id), method: :delete, remote: true,  data: {confirm: "登録したメモも削除されますが宜しいですか？"} do %>
+	  		<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>&thinsp;<%= @spot.favorite_spots.count %>
+  		<% end %>
 	  <% else %>
-	  	<p><span>お気に入り登録: </span><%=link_to @spot.favorite_spots.count, spot_favorite_spots_path(@spot.id), method: :post, remote: true %></p>
+	  	<span>お気に入り登録：</span>
+  		<%=link_to spot_favorite_spots_path(@spot.id), method: :post, remote: true do %>
+			<i class="fa fa-heart-o" aria-hidden="true"></i>&thinsp;<%= @spot.favorite_spots.count %>
+		<% end %>
 	  <% end %>
 	<% end %>
 

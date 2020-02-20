@@ -31,7 +31,8 @@
 		<%= f.text_field :access %>
 
 		<h4>公開ステータス</h4>
-		<%= f.text_field :public_status %>
+		<label><%= f.radio_button :public_status, :公開中 %>公開中</label>
+		<label><%= f.radio_button :public_status, :非公開 %>非公開</label>
 		<br>
 		<br>
 

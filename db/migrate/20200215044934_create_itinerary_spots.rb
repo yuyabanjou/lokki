@@ -9,8 +9,8 @@ class CreateItinerarySpots < ActiveRecord::Migration[5.2]
       t.string :moving_genre
       t.text :moving_memo
       t.integer :fare
-      t.time :arrival_plan_time
-      t.time :start_plan_time
+      t.datetime :arrival_plan_time
+      t.datetime :start_plan_time
 
       t.timestamps
     end

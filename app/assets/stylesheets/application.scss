@@ -16,9 +16,15 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "font-awesome";
+@import "tempusdominus-bootstrap-4.css";
 
 .navbar{
 	background-color: #e6e6fa;
+}
+
+.navbar-header{
+	margin-top: 5px;
 }
 
 .navbar-right{
@@ -50,7 +56,6 @@ footer{
 	bottom: 0;
 	width: 100%;
 	height: 60px;
-	background-color: #e6e6fa;
 }
 
 #wrapper{

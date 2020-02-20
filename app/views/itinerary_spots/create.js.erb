@@ -1,4 +1,5 @@
 <% if @status == 'success' %>
+// tbodyを指定してappendで追加している（tbodyが複数ある場合は全てに追加されてしまうのでidを付けてあげる）
 $("tbody").append("<%= j(render("tr", itinerary_spot: @itinerary_spot)) %>");
 <% elsif @status == 'fail' %>
 alert('error!');

@@ -20,10 +20,9 @@
 						<% if traveller_signed_in? %>
 							<% if current_traveller.id == @spot.traveller_id %>
 								<h4><%= link_to '編集する', edit_traveller_spot_path(@spot.id) %></h4>
+								<h2 style="padding-bottom: 5px;"><%= @spot.public_status %></h2>
 							<% end %>
 						<% end %>
-
-						<h2 style="padding-bottom: 5px;"><%= @spot.public_status %></h2>
 
 						<h3 style="padding-bottom: 5px;"><%= @spot.spot_name %> / <%= @spot.genre %></h3>
 
@@ -35,13 +34,15 @@
 						<h4 style="padding-bottom: 5px;">おすすめのアクセス方法</h4>
 						<p style="padding-bottom: 10px;"><%= @spot.access %></p>
 
+						<% if traveller_signed_in? %>
 						<div id="favorite_spot_button_<%= @spot.id %>">
 							<%= render partial: 'favorite_spots/favorite_spot', locals: {spot: @spot} %>
 						</div>
-
-						<% if traveller_signed_in? %>
+						<div>
+							<p>投稿者：<%= link_to @spot.traveller.name, traveller_path(@spot.traveller_id) %>&thinsp;さん</p>
+						</div>
 					  <% else %>
-					  	<p><span>お気に入り数: </span><%= @spot.favorite_spots.count %></p>
+					  	<p><span>お気に入り数:<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i></span><%= @spot.favorite_spots.count %></p>
 					  <% end %>
 					</div>
 

@@ -1,0 +1,25 @@
+<!-- itineraryに挿入するための部分テンプレート -->
+	<tr id=<%=itinerary_spot.id %>>
+		<td>
+			<%= itinerary_spot.arrival_plan_time.strftime("%Y-%m-%d") %><br>
+			到着：<%= itinerary_spot.arrival_plan_time.strftime("%R") %><br>
+			出発：<%= itinerary_spot.start_plan_time.strftime("%R") %>
+		</td>
+		<td>
+			<%= itinerary_spot.moving_genre %><br>
+			運賃:<%= itinerary_spot.fare %><br>
+			メモ:<%= itinerary_spot.moving_memo %>
+		</td>
+		<td><%= itinerary_spot.itinerary_spot_memo %></td>
+		<td>
+		<% if itinerary_spot.spot_id.present? %>
+			<%= link_to itinerary_spot.spot.spot_name, spot_path(id: itinerary_spot.spot_id, traveller_id: itinerary_spot.spot.traveller_id) %>
+		<% else %>
+		<% end %>
+		</td>
+
+		<!-- 非同期処理未対応 -->
+		<td><%= link_to "削除", traveller_itinerary_itinerary_spot_path(itinerary_id: @itinerary.id, id: itinerary_spot.id), class: 'btn btn-sm btn-danger', method: :delete %></td>
+		<!-- 非同期対応済 -->
+		<td><%= link_to "編集", edit_traveller_itinerary_itinerary_spot_path(itinerary_id: @itinerary.id, id: itinerary_spot.id), class: 'btn btn-sm btn-primary', remote: true %></td>
+	</tr>

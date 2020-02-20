@@ -1,0 +1,111 @@
+<div class="modal-dialog modal-dialog-centered modal-lg">
+  <div class="modal-content">
+  	<%= form_for([@itinerary, @itinerary_spot], url:traveller_itinerary_itinerary_spots_path(current_traveller.id, @itinerary.id), remote: true) do |f| %>
+    <div class="modal-header">
+      <h4 class="modal-title">new spot</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div><!-- /.modal-header -->
+    <div class="modal-body">
+    	<div class="container-fluid">
+    		<div class="row">
+    			<div class="col-md-6">
+						<div class="input-group" data-target-input="nearest">
+							<%= f.text_field :arrival_plan_time, id: "arrival_plan_time", class: "form-control datepicker", data: { target: '#arrival_plan_time'}, placeholder: "到着" %>
+							<div class="input-group-append" data-target="#arrival_plan_time" data-toggle="datetimepicker">
+								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 ml-auto">
+						<div class="input-group" data-target-input="nearest">
+							<%= f.text_field :start_plan_time, id: "start_plan_time", class: "form-control datepicker", data: { target: '#start_plan_time'}, placeholder: "出発" %>
+							<div class="input-group-append" data-target="#start_plan_time" data-toggle="datetimepicker">
+								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<h5>移動</h5>
+				<div class="row">
+					<div class="col-md-3">
+						<%= f.select :moving_genre, ItinerarySpot.moving_genres.map { |k, v| [k, k] }, {prompt: "選択してください"}, class: "form-control" %>
+					</div>
+					<div class="col-md-3 ml-auto">
+						<%= f.text_field :fare, placeholder: "€", class: "form-control" %>
+					</div>
+					<div class="col-md-6 ml-auto">
+						<%= f.text_area :moving_memo, placeholder: "移動メモ", class: "form-control" %>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6">
+								<h5>スポット選択</h5>
+								<div class="row text-center">
+									<div class="col-sm-6"><h6 class="fav_spot_btn">お気に入りスポット</h6></div>
+									<div class="col-sm-6"><h6 class="my_spot_btn">投稿したスポット</h6></div>
+								</div>
+								<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name, {include_blank: true}, class: "form-control fav_spot" %>
+								<%= f.collection_select :spot_id, @spots, :id, :spot_name, {include_blank: true}, class: "form-control my_spot" %>
+							</div>
+							<div class="col-sm-6">
+								<h5>memo</h5>
+								<%= f.text_area :itinerary_spot_memo, placeholder: "メモ",class: "form-control" %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    </div><!-- /.modal-body -->
+    <div class="modal-footer">
+    	<%= f.submit '登録', class: "btn btn-primary" %>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+    </div><!-- /.modal-footer -->
+    <% end %>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+
+<!-- _edit_form.html.erbと共通化できる、下記JSは外出しする -->
+<!-- datetimepicker、Linked Pickersで入力を制限 -->
+<script type="text/javascript">
+	$(function () {
+	  $('#arrival_plan_time').datetimepicker();
+	  $('#start_plan_time').datetimepicker({
+	      useCurrent: false
+	  });
+	  $("#arrival_plan_time").on("change.datetimepicker", function (e) {
+	      $('#start_plan_time').datetimepicker('minDate', e.date);
+	  });
+	  $("#start_plan_time").on("change.datetimepicker", function (e) {
+	      $('#arrival_plan_time').datetimepicker('maxDate', e.date);
+	  });
+
+// スポット登録のプルダウンを表示・非表示させる
+
+	  $('.my_soot').hide();
+
+	  $(".fav_spot_btn").on("click", function(){
+	  	$(".my_spot_btn").css('color', 'rgb(0, 0, 255)');
+	  	$(".fav_spot_btn").css('color', 'rgb(255, 0, 0)');
+			$('.my_spot').hide();
+			$('.my_spot').prop('disabled', true);
+			$('.fav_spot').show();
+			$('.fav_spot').prop('disabled', false);
+	  });
+
+	  $(".my_spot_btn").on("click", function(){
+	  	$(".my_spot_btn").css('color', 'rgb(255, 0, 0)');
+	  	$(".fav_spot_btn").css('color', 'rgb(0, 0, 255)');
+			$('.fav_spot').hide();
+			$('.fav_spot').prop('disabled', true);
+			$('.my_spot').show();
+			$('.my_spot').prop('disabled', false);
+	  });
+
+	});
+</script>
