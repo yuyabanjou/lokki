@@ -1,5 +1,7 @@
 <div class="container">
 	<div class="row">
+
+		<!-- itineraryを編集する -->
 		<p class="mr-auto">
 		  <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 		    編集
@@ -16,8 +18,8 @@
 				<div class="row" style="padding-bottom: 10px;"><%= f.text_area :synopsis, :size=>"39x10", placeholder: "旅の概要" %></div>
 
 				<div class="row" style="padding-bottom: 10px;">
-					<label><%= f.radio_button :public_status, :true %>公開</label>
-					<label><%= f.radio_button :public_status, :false %>非公開</label>
+					<label><%= f.radio_button :public_status, :公開中 %>公開</label>
+					<label><%= f.radio_button :public_status, :非公開 %>非公開</label>
 				</div>
 
 				<%= f.submit('更新',class: "btn btn-primary btn-lg my-1 mb-5 px-5") %>
@@ -25,14 +27,20 @@
 				<% end %>
 		  </div>
 		</div>
+		<!-- ここまで -->
 
+		<!-- itinerary_spotを新規登録する -->
 		<div class="col-sm-6">
 			<%= link_to '行程を追加', new_traveller_itinerary_itinerary_spot_path(itinerary_id: @itinerary.id), remote: true, class: "btn btn-lg, btn-primary" %>
 		</div>
 		<div id="itinerary_spot-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+		<!-- ここまで -->
 
+		<!-- itineraryを削除する -->
 		<div><%= link_to "削除する", traveller_itinerary_path(itinerary_id: @itinerary.id), class: 'btn btn-lg btn-danger', method: :delete %></div>
+		<!-- ここまで -->
 
+		<!-- 登録したitinerary_spotsを表示 -->
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -44,12 +52,14 @@
 					<th></th>
 				</tr>
 			</thead>
+			<!-- 非同期で表示するために部分テンプレートを使用 -->
 			<tbody>
 				<% @itinerary.itinerary_spots.each do |itinerary_spot| %>
 					<%= render partial: "itinerary_spots/tr", locals: { itinerary_spot: itinerary_spot } %>
 				<% end %>
 			</tbody>
 		</table>
+		<!-- ここまで -->
 
 	</div>
 </div>

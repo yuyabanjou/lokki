@@ -66,7 +66,7 @@ Spot.create!(
 			genre: '観光地',
 			spot_name: 'ヘルシンキ大聖堂',
 			spot_text: 'ヘルシンキの小高い丘の上に建つ、白亜の大聖堂。大階段に腰を下ろし、夏の日差しをいっぱいに浴びながら街を見下ろすと、「バルト海の乙女」と称される美しい街並が見えます。どうしても見たかった、ここからの景色。南にはエテラ港があり、オレンジ色のテントが並ぶマーケット広場（Kauppatori）が広がっていて、旬のブルーベリーやラズベリー、果物や野菜、キノコや海の幸、トナカイの角のアクセサリーや白樺のこぶで作られたククサなどが並び、にぎやかな人であふれています。',
-			image: Rails.root.join("db/sample1.jpg").open,
+			image: Rails.root.join("db/seed_img/sample1.jpg").open,
 			cost: '4',
 			business_hours: '月曜～土曜10：00-17:00、日曜11:00-15:00',
 			stay_time: '約30分',
@@ -79,7 +79,7 @@ Spot.create!(
 			genre: '観光地',
 			spot_name: 'テンペリアウキオ教会',
 			spot_text: 'テンペリアウキオ教会は、フィンランドのヘルシンキ市・トーロにある、フィンランド福音ルター派教会に属しているキリスト教会である。ティモ・スオマライネン とトゥオモ・スオマライネン の兄弟によって設計され、1969年に完成した。岩の教会とも呼ばれる。',
-			image: Rails.root.join("db/sample2.jpg").open,
+			image: Rails.root.join("db/seed_img/sample2.jpg").open,
 			cost: '3',
 			business_hours: '月曜～金曜10：00-17:00、土曜10:00-13:15,14:15-14:45,15:45-17:00、日曜12:00-17:00',
 			stay_time: '約30分',
@@ -88,5 +88,18 @@ Spot.create!(
 			public_status: '公開中',
 			traveller_id: 2
 		}
+		# {
+		# 	genre: '観光地',
+		# 	spot_name: 'マリメッコ本社',
+		# 	spot_text: 'マリメッコファンの聖地。旅行者でも訪問できるエリアは、二つのショップと社員食堂。中でも注目は型落ちのアイテムを割引価格で購入できるアウトレット。',
+		# 	image: '',
+		# 	cost: '',
+		# 	business_hours: '',
+		# 	stay_time: '',
+		# 	position: '',
+		# 	access: '',
+		# 	public_status: '公開中',
+		# 	traveller_id:  1
+		# }
 	]
 )

@@ -47,6 +47,7 @@ class ItinerarySpotsController < ApplicationController
 		@itinerary = Itinerary.find(params[:itinerary_id])
 		@favorite_spots = current_traveller.my_favorite_spots
 		@itinerary_spot = @itinerary.itinerary_spots.find(params[:id])
+		@spots = current_traveller.spots
 	end
 
 	def update
