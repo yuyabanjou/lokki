@@ -83,3 +83,11 @@ gem "bootstrap4-datetime-picker-rails"
 gem 'momentjs-rails'
 gem "font-awesome-rails"
 
+# デプロイ 2020/02/22
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end
+
+
