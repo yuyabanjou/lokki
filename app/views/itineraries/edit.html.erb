@@ -37,7 +37,7 @@
 		<!-- ここまで -->
 
 		<!-- itineraryを削除する -->
-		<div><%= link_to "削除する", traveller_itinerary_path(itinerary_id: @itinerary.id), class: 'btn btn-lg btn-danger', method: :delete %></div>
+		<div><%= link_to "削除する", traveller_itinerary_path(itinerary_id: @itinerary.id), class: 'btn btn-lg btn-danger', method: :delete, data: {confirm: "登録した情報は全て削除されますが宜しいですか？"} %></div>
 		<!-- ここまで -->
 
 		<!-- 登録したitinerary_spotsを表示 -->
