@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   get 'favorite_spots/create'
   get 'favorite_spots/destroy'
-  get 'travellers/show'
   # resources :travellers, only: [:show]
 
   devise_for :travellers, controllers: {
@@ -12,6 +11,9 @@ Rails.application.routes.draw do
   }
 
   root 'spots#top'
+
+  # favorite_spot_memoを表示させるためルーティング
+  get 'itinerary_spots/getmemo' => 'itinerary_spots/getmemo'
 
   resources :travellers do
   	resources :spots, only: [:new, :create, :edit, :update, :destroy]

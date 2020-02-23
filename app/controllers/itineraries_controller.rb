@@ -32,7 +32,8 @@ class ItinerariesController < ApplicationController
 		itinerary = Itinerary.find(params[:id])
 		traveller = current_traveller
 		itinerary.destroy
-		redirect_to travellers_show_path(traveller.id)
+		redirect_to traveller_path(traveller.id)
+		# binding.pry
 	end
 
 	def show

@@ -47,11 +47,16 @@
 							<div class="col-sm-6">
 								<h5>スポット選択</h5>
 								<div class="row text-center">
-									<div class="col-sm-6"><h6 class="fav_spot_btn">お気に入りスポット</h6></div>
-									<div class="col-sm-6"><h6 class="my_spot_btn">投稿したスポット</h6></div>
+									<div class="btn-group btn-group-toggle" data-toggle="buttons">
+										<!-- style="display:none"はclassをつけてCSSに記述すると綺麗 -->
+										<div class="col-sm-6"><h6 class="fav_spot_btn btn btn-secondary"><input type="radio" name="options" id="option1" style="display:none">お気に入りスポット</h6></div>
+										<div class="col-sm-6"><h6 class="my_spot_btn btn btn-secondary"><input type="radio" name="options" id="option2" style="display:none">投稿したスポット</h6></div>
+									</div>
 								</div>
+								<%# binding.pry %>
 								<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name, {include_blank: true}, class: "form-control fav_spot" %>
 								<%= f.collection_select :spot_id, @spots, :id, :spot_name, {include_blank: true}, class: "form-control my_spot" %>
+								<div id="favorie-spot-memo"></div>
 							</div>
 							<div class="col-sm-6">
 								<h5>memo</h5>
@@ -90,8 +95,8 @@
 	  $('.my_soot').hide();
 
 	  $(".fav_spot_btn").on("click", function(){
-	  	$(".my_spot_btn").css('color', 'rgb(0, 0, 255)');
-	  	$(".fav_spot_btn").css('color', 'rgb(255, 0, 0)');
+	  	// $(".my_spot_btn").css('color', 'rgb(0, 0, 255)');
+	  	// $(".fav_spot_btn").css('color', 'rgb(255, 0, 0)');
 			$('.my_spot').hide();
 			$('.my_spot').prop('disabled', true);
 			$('.fav_spot').show();
@@ -99,13 +104,35 @@
 	  });
 
 	  $(".my_spot_btn").on("click", function(){
-	  	$(".my_spot_btn").css('color', 'rgb(255, 0, 0)');
-	  	$(".fav_spot_btn").css('color', 'rgb(0, 0, 255)');
+	  	// $(".my_spot_btn").css('color', 'rgb(255, 0, 0)');
+	  	// $(".fav_spot_btn").css('color', 'rgb(0, 0, 255)');
 			$('.fav_spot').hide();
 			$('.fav_spot').prop('disabled', true);
 			$('.my_spot').show();
 			$('.my_spot').prop('disabled', false);
 	  });
+
+// collection.selectに合わせてfavorite_spot_memoの表示をさせる
+	  $('.fav_spot').change(function(){
+// 選択された中身が空の場合何も表示せず、中身がある場合は非同期で表示させる
+	  	if(!$(this).val()) {
+		  	$('#favorie-spot-memo').html('');
+	  	} else {
+// 非同期で指定のcontrollerとactionを呼び出す
+		  	$.ajax({
+		  		url: '/itinerary_spots/getmemo',
+		  		type: 'GET',
+		  		data: {
+		  			spot_id : $(this).val()
+		  		}
+// controllerから受け取ったdataの中身を表示させる
+		  	}).done(function(data){
+			  	$('#favorie-spot-memo').html(data.result);
+		  	}).fail(function(err){
+		  		console.log(err)
+		  	})
+	  	}
+	  })
 
 	});
 </script>

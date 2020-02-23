@@ -66,6 +66,13 @@ class ItinerarySpotsController < ApplicationController
 		end
 	end
 
+	# favorite_spot_memoを表示させるためのaction、json形式でデータだけをresultとして返している
+	def getmemo
+		render :json => {
+			'result' => FavoriteSpot.where(spot_id: params[:spot_id])[0].favorite_spot_memo
+		}
+	end
+
 	private
 	def itinerary_spot_params
 		params.require(:itinerary_spot).permit(:spot_id, :date, :itinerary_spot_memo, :reference_url, :moving_genre, :moving_memo, :fare, :arrival_plan_time, :start_plan_time)
