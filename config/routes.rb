@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   # favorite_spot_memoを表示させるためルーティング
   get 'itinerary_spots/getmemo' => 'itinerary_spots/getmemo'
 
+  get '/spots/about' => 'spots#about', as: 'about'
+
+  get '/travellers/withdraw' => 'travellers#withdraw'
+  get '/travellers/myedit' => 'travellers#edit'
+  patch '/travellers/update' => 'travellers#update'
+
   resources :travellers do
   	resources :spots, only: [:new, :create, :edit, :update, :destroy]
     resources :itineraries, only: [:new, :create, :edit, :update, :destroy, :index, :show] do

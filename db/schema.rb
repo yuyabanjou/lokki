@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_15_045524) do
+ActiveRecord::Schema.define(version: 2020_02_24_083626) do
 
   create_table "favorite_spots", force: :cascade do |t|
     t.integer "traveller_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_02_15_045524) do
     t.datetime "remember_created_at"
     t.string "name"
     t.integer "trip_count"
-    t.boolean "entry_status"
+    t.boolean "entry_status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_travellers_on_email", unique: true

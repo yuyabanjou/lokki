@@ -14,7 +14,7 @@
 						<br>
 
 						<% if current_traveller.id == @traveller.id %>
-							<%= link_to edit_traveller_registration_path(current_traveller), class: 'btn btn-info' do %>
+							<%= link_to travellers_myedit_path(current_traveller), class: 'btn btn-info' do %>
 								<span>編集する</span>
 							<% end %>
 						<% end %>

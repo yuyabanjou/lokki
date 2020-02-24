@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row">
+		<% if @traveller.errors.any? %>
+			<%= @traveller.errors.count %>件入力に誤りがあります<br>
+			<% @traveller.errors.full_messages.each do |massage| %>
+				<%= massage %><br>
+			<% end %>
+		<% end %>
+
+		<table class="table">
+
+			<%= form_for(@traveller, url: travellers_update_path) do |f| %>
+			<tr>
+				<th>ニックネーム</th>
+				<th><%= f.text_field :name, autofocus: true, placeholder:"ニックネーム"%></th>
+			</tr>
+
+			<tr>
+				<th>メールアドレス</th>
+				<th><%= f.text_field :email, autofocus: true, placeholder:"メールアドレス"%></th>
+			</tr>
+
+			<tr>
+				<th>渡航回数</th>
+				<th><%= f.text_field :trip_count, autofocus: true, placeholder:"渡航回数"%></th>
+			</tr>
+
+			<tr>
+				<th><%= f.submit "更新", class: 'btn btn-primary' %></th>
+				<th><%= link_to "退会する場合はこちら", travellers_withdraw_path(current_traveller), class: 'btn btn-denger' %></th>
+			</tr>
+
+			<% end %>
+
+		</table>
+	</div>
+</div>

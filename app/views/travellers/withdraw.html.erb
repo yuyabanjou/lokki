@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h4><strong>本当に退会しますか?</strong></h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<h4>退会すると、会員登録情報や<br>これまでの旅行計画が閲覧できなくなります。<br>退会する場合は、「退会する」をクリックしてください。</h4>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-3">
+			<%=link_to "退会しない", traveller_path(current_traveller) %>
+		</div>
+		<div class="col-lg-3">
+			<%=link_to "退会する", traveller_registration_path, method: :delete, data: { confirm: '本当に退会しますか?'} %>
+		</div>
+	</div>
+</div>
