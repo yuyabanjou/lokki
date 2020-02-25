@@ -31,9 +31,8 @@ class SpotsController < ApplicationController
 
   def edit
     @spot = Spot.find(params[:id])
-    @traveller = current_traveller
-    if @traveller.id == current_traveller.id
-    else
+    @traveller = @spot.traveller
+    if @traveller.id != current_traveller.id
       redirect_to spot_path(@spot.id)
     end
   end
