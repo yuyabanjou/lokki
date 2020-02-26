@@ -1,23 +1,108 @@
 <div class="container">
-	<div class="row　justify-content-center">
-		<div class="col-lg-12 justify-content-center text-center">
-			<h2><strong>旅のタイトル</strong></h2>
-						<h3 style="padding-bottom: 30px;"><%= @itinerary.title %></h3>
+	<!-- 計画概要 -->
+	<div class="row　justify-content-center text-center">
+			<h3 style="padding-bottom: 30px;"><%= @itinerary.title %></h3>
 
-						<h4 style="padding-bottom: 30px;"><%= @itinerary.theme %></h4>
+			<h4 style="padding-bottom: 30px;"><%= @itinerary.theme %></h4>
 
-						<p style="padding-bottom: 30px;"><%= @itinerary.synopsis %></p>
+			<p style="padding-bottom: 30px;"><%= @itinerary.synopsis %></p>
+	</div>
 
-
-						<h4>公開ステータス</h4>
-						<%= @itinerary.public_status %>
-
-				<div class="col-lg-12">
-					<% if current_traveller.id == @itinerary.traveller_id %>
-					<%= link_to '編集する', edit_traveller_itinerary_path(@itinerary.id) %>
-					<% end %>
+	<!-- 予定 -->
+	<% @itinerary_spots.each do |itinerary_spot| %>
+	<div class="row" style="padding-bottom: 30px;">
+		<div class="col">
+			<div class="row align-items-center">
+				<div class="col-lg-1">
+					<i class="fas fa-map-marker-alt"></i>
 				</div>
 
+				<div class="col-lg-2">
+					<%= itinerary_spot.arrival_plan_time.strftime("%F") %><br>
+					<%= itinerary_spot.arrival_plan_time.strftime("%R") %>
+				</div>
+				<%# binding.pry %>
+				<div class="col-lg-9">
+					<% if itinerary_spot.spot_id.present? %>
+						<%= link_to itinerary_spot.spot.spot_name, spot_path(id: itinerary_spot.spot.id, traveller_id: itinerary_spot.spot.traveller_id) %>
+					<% else %>
+						<i class="far fa-meh-blank"></i>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="row align-items-center">
+				<div class="col-lg-1">
+					<div class="col-lg-1" style="border-right: 3px solid black;  height: 300px; margin-left: -26px;">
+					</div>
+				</div>
+				<div class="col-lg-2" >
+					<% if  itinerary_spot.moving_genre == "徒歩" %>
+						<i class="fas fa-shoe-prints"></i>
+					<% elsif  itinerary_spot.moving_genre == "電車" %>
+						<i class="fas fa-subway"></i>
+					<% elsif  itinerary_spot.moving_genre == "バス" %>
+						<i class="fas fa-bus-alt"></i>
+					<% elsif  itinerary_spot.moving_genre == "船" %>
+						<i class="fas fa-ship"></i>
+					<% elsif  itinerary_spot.moving_genre == "その他" %>
+						<i class="fas fa-dragon"></i>
+					<% end %>
+
+				</div>
+
+				<div class="col-lg-9">
+					<div class="row">
+						<div class="col">
+							<div class="row">
+								<div class="col">
+									<% if itinerary_spot.spot_id.present? %>
+										<%= attachment_image_tag itinerary_spot.spot, :image, :fill, 600, 350, :class => "img-rounded .img-responsive" %>
+									<% else %>
+									<% end %>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="row">
+										<div class="col"><%= itinerary_spot.moving_genre %></div>
+									</div>
+									<div class="row">
+										<div class="col"><%= itinerary_spot.fare %>€</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="col"><%= itinerary_spot.moving_memo %></div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col"><%= itinerary_spot.itinerary_spot_memo %></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
+	<% end %>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+	<div class="row justify-content-center text-center">
+		<div class="col-lg">
+			<% if current_traveller.id == @itinerary.traveller_id %>
+				<h4>公開ステータス</h4>
+				<%= @itinerary.public_status %>
+				<%= link_to '編集する', edit_traveller_itinerary_path(@itinerary.id), class: "btn btn-lg, btn-primary" %>
+			<% end %>
+		</div>
+
 	</div>
 </div>

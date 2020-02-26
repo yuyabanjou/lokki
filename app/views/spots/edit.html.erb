@@ -1,48 +1,68 @@
 <div class="container">
 	<div class="row">
 		<h2><strong>スポット 編集画面</strong></h2>
+	</div>
 
-		<%= form_for([@traveller, @spot]) do |f| %>
+	<div class="row justify-content-end">
+		<%= link_to "削除する", traveller_spot_path(@spot.id), method: :delete, data: { confirm: '本当に消しますか?' }, class: 'btn btn-danger' %>
+	</div>
 
-		<%= f.attachment_field :image %>
+	<div class="row">
 
-		<h4>スポット名</h4>
-		<%= f.text_field :spot_name %>
+		<div class="col-md-4">
+			<%= form_for([@traveller, @spot]) do |f| %>
 
-		<h4>説明</h4>
-		<%= f.text_area :spot_text %>
+				<h4>スポット名</h4>
+				<%= f.text_field :spot_name, class: "form-control" %>
 
-		<h4>ジャンル</h4>
-		<%= f.select :genre, Spot.genres.map { |k, v| [k, k] } %>
+				<h4>説明</h4>
+				<%= f.text_area :spot_text, class: "form-control" %>
 
-		<h4>料金</h4>
-		<%= f.text_field :cost %>
+				<h4>画像投稿</h4>
+				<%= f.attachment_field :image %>
+		</div>
 
-		<h4>営業時間</h4>
-		<%= f.text_field :business_hours %>
+		<div class="col-md-4">
+				<h4>ジャンル</h4>
+				<%= f.select :genre, Spot.genres.map { |k, v| [k, k] }, {}, {:class => "form-control"} %>
 
-		<h4>目安滞在時間</h4>
-		<%= f.text_field :stay_time %>
+				<h4>料金</h4>
+				<%= f.text_field :cost, class: "form-control" %>
 
-		<h4>位置情報</h4>
-		<%= f.text_field :position %>
+				<h4>営業時間</h4>
+				<%= f.text_field :business_hours, class: "form-control" %>
 
-		<h4>おすすめのアクセス方法</h4>
-		<%= f.text_field :access %>
+				<h4>目安滞在時間</h4>
+				<%= f.text_field :stay_time, class: "form-control" %>
 
-		<h4>公開ステータス</h4>
-		<label><%= f.radio_button :public_status, :公開中 %>公開中</label>
-		<label><%= f.radio_button :public_status, :非公開 %>非公開</label>
-		<br>
-		<br>
+				<h4>位置情報</h4>
+				<%= f.text_field :position, class: "form-control" %>
+		</div>
 
-		<%= f.submit '保存する' %>
+		<div class="col-md-4">
+				<h4>おすすめのアクセス方法</h4>
+				<%= f.text_area :access, class: "form-control" %>
 
-		<% end %>
+				<h4>公開ステータス</h4>
+				<div class="form-group row">
+					<div class="col-sm-10 btn-group" data-toggle="buttons">
+						<label class="btn btn-outline-secondary active" style="width:50%">
+							<%= f.radio_button :public_status, :公開中, {checked: true} %>公開する
+					 	</label>
+						<label class="btn btn-outline-secondary" style="width:50%">
+							<%= f.radio_button :public_status, :非公開, {} %>非公開にする
+						</label>
+					</div>
+				</div>
 
-		<botton type="botton" class="btn btn-default">
-			<%= link_to "削除する", traveller_spot_path(@spot.id), method: :delete, data: { confirm: '本当に消しますか?' } %>
-		</botton>
+		</div>
+	</div>
+
+	<div class="row justify-content-end">
+				<%= f.submit '保存する', class: "btn btn-primary" %>
+	</div>
+
+			<% end %>
 
 	</div>
 </div>

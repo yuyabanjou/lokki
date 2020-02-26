@@ -1,17 +1,20 @@
 class SpotsController < ApplicationController
 
-  before_action :authenticate_traveller!, except: [:top, :index, :show]
+  before_action :authenticate_traveller!, except: [:top, :index, :show, :about]
 
   def top
-    @spots = Spot.page(params[:page]).reverse_order
+    @spots = Spot.公開中.page(params[:page]).reverse_order
   end
 
   def index
-    @spots = Spot.page(params[:page]).reverse_order
+    @spots = Spot.公開中.page(params[:page]).reverse_order
   end
 
   def show
     @spot = Spot.find(params[:id])
+  end
+
+  def about
   end
 
   def new
@@ -28,9 +31,8 @@ class SpotsController < ApplicationController
 
   def edit
     @spot = Spot.find(params[:id])
-    @traveller = current_traveller
-    if @traveller.id == current_traveller.id
-    else
+    @traveller = @spot.traveller
+    if @traveller.id != current_traveller.id
       redirect_to spot_path(@spot.id)
     end
   end

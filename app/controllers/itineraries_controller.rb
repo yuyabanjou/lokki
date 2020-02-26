@@ -1,7 +1,6 @@
 class ItinerariesController < ApplicationController
 	before_action :authenticate_traveller!, except: [:top, :index, :show]
 
-
 	def new
 		@itinerary = Itinerary.new
 		@traveller = current_traveller
@@ -18,7 +17,10 @@ class ItinerariesController < ApplicationController
 
 	def edit
 		@itinerary = Itinerary.find(params[:id])
-		@traveller = current_traveller
+		@traveller = @itinerary.traveller
+		if @traveller.id != current_traveller.id
+      redirect_to traveller_itinerary_path(id: @itinerary.id, traveller_id: @traveller.id)
+    end
 	end
 
 	def update
@@ -38,6 +40,7 @@ class ItinerariesController < ApplicationController
 
 	def show
 		@itinerary = Itinerary.find(params[:id])
+		@itinerary_spots = @itinerary.itinerary_spots.all
 	end
 
 	private
