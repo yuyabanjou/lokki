@@ -24,7 +24,7 @@
 				<%# binding.pry %>
 				<div class="col-lg-9">
 					<% if itinerary_spot.spot_id.present? %>
-						<%= link_to itinerary_spot.spot.spot_name, spot_path(id: itinerary_spot.spot.id, traveller_id: itinerary_spot.spot.traveller_id) %>
+						<h4><strong><%= link_to itinerary_spot.spot.spot_name, spot_path(id: itinerary_spot.spot.id, traveller_id: itinerary_spot.spot.traveller_id), :style=>"color:gray;" %></strong></h4>
 					<% else %>
 						<i class="far fa-meh-blank"></i>
 					<% end %>
@@ -82,6 +82,16 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="row align-items-center">
+				<div class="col-lg-1">
+				</div>
+
+				<div class="col-lg-2">
+					<%= itinerary_spot.start_plan_time.strftime("%R") %>
+				</div>
+			</div>
+
 		</div>
 	</div>
 	<% end %>
