@@ -12,7 +12,7 @@
     		<div class="row">
     			<div class="col-md-6">
 						<div class="input-group" data-target-input="nearest">
-							<%= f.text_field :arrival_plan_time, id: "arrival_plan_time", class: "form-control datepicker", data: { target: '#arrival_plan_time'}, placeholder: "到着" %>
+							<%= f.text_field :arrival_plan_time, id: "arrival_plan_time", class: "form-control datepicker", data: { target: '#arrival_plan_time'}, placeholder: "start" %>
 							<div class="input-group-append" data-target="#arrival_plan_time" data-toggle="datetimepicker">
 								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
 							</div>
@@ -20,7 +20,7 @@
 					</div>
 					<div class="col-md-6 ml-auto">
 						<div class="input-group" data-target-input="nearest">
-							<%= f.text_field :start_plan_time, id: "start_plan_time", class: "form-control datepicker", data: { target: '#start_plan_time'}, placeholder: "出発" %>
+							<%= f.text_field :start_plan_time, id: "start_plan_time", class: "form-control datepicker", data: { target: '#start_plan_time'}, placeholder: "end" %>
 							<div class="input-group-append" data-target="#start_plan_time" data-toggle="datetimepicker">
 								<div class="input-group-text"><i class="fa fa-calendar"></i></div>
 							</div>

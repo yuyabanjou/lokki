@@ -6,11 +6,12 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th></th>
-					<th></th>
-					<th >スポット名</th>
+					<th>No.</th>
 					<th>ジャンル</th>
+					<th>image</th>
+					<th >スポット名</th>
 					<th>料金</th>
+					<th>アクセス方法</th>
 					<th>営業時間</th>
 				</tr>
 			</thead>
@@ -18,14 +19,15 @@
 				<% @spots.each do |spot| %>
 				<tr>
 					<td><%= spot.id %></td>
+					<td><%= spot.genre %></td>
 					<td>
 					<%= link_to spot_path(id: spot.id, traveller_id: spot.traveller_id) do %>
 						<%= attachment_image_tag spot, :image, :fill, 200, 180, :class => "img-rounded" %>
 					<% end %>
 					</td>
 					<td><%= link_to spot.spot_name, spot_path(id: spot.id, traveller_id: spot.traveller_id) %></td>
-					<td><%= spot.genre %></td>
-					<td><%= spot.cost %></td>
+					<td><%= spot.cost %>€</td>
+					<td><%= spot.access %></td>
 					<td><%= spot.business_hours %></td>
 				</tr>
 				<% end %>

@@ -1,34 +1,31 @@
 <div class="container">
-	<div class="row">
-		<h2><strong><%= link_to "スポット一覧へ", spots_path %></strong></h2>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th></th>
-					<th></th>
-					<th>スポット名</th>
-					<th>ジャンル</th>
-					<th>料金</th>
-					<th>営業時間</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @spots.each do |spot| %>
-				<tr>
-					<td><%= spot.id %></td>
-					<td>
-						<%= link_to spot_path(id: spot.id, traveller_id: spot.traveller_id) do %>
-						<%= attachment_image_tag spot, :image, :fill, 200, 180, :class => "img-rounded" %>
-						<% end %>
-					</td>
-					<td><%= link_to spot.spot_name, spot_path(id: spot.id, traveller_id: spot.traveller_id) %></td>
-					<td><%= spot.genre %></td>
-					<td><%= spot.cost %></td>
-					<td><%= spot.business_hours %></td>
-				</tr>
-				<% end %>
-				<%= paginate @spots, class: "paginate" %>
-			</tbody>
-		</table>
+	<div class="row　justify-content-center text-center">
+		<div class="col">
+			<h4>
+				<p><br><br>
+					初めてのフィンランド旅行を最高の思い出にするために<br>旅の計画は大切です。<br>
+					自らの体験から、もっとスムーズに旅に出かけられるように<br>このアプリを作りました。<br><br><br>
+					渡航経験者の声を参考にしながら<br>旅の計画を立てていきましょう！<br><br>
+					<br><br>
+					さあ、最高の思い出づくりのために
+					<br><br><br>
+					MENNÄÄN！
+					(レッツゴー！)<br><br><br>
+				</p>
+			</h4>
+		</div>
+	</div>
+	<div class="row　justify-content-center text-center">
+		<div class="col">
+			<h2><%= link_to "スポット一覧", spots_path, class: 'btn btn-lg, btn-primary' %></h2>
+		</div>
+	</div>
+	<div class="row　justify-content-center text-center">
+		<div class="col">
+			<p><br><br>
+			ユーザ登録はこちら<br>
+			</p>
+			<h2><%= link_to "ユーザ登録", new_traveller_registration_path, class: 'btn btn-lg, btn-primary' %></h2>
+		</div>
 	</div>
 </div>
