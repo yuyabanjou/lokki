@@ -84,7 +84,7 @@ Spot.create!(
 			business_hours: '',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: '地下鉄ヘルットミエニ駅から東方向に徒歩10分',
 			public_status: '公開中',
 			traveller_id: 2
 		},
@@ -97,7 +97,7 @@ Spot.create!(
 			business_hours: '月〜金10:00−18:00、土10:00−16:00、定休日:日',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: '地下鉄ヘルットミエニ駅から東方向に徒歩10分',
 			public_status: '公開中',
 			traveller_id: 2
 		},
@@ -123,7 +123,7 @@ Spot.create!(
 			business_hours: '月〜金10:30−14:00、定休日:土日',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: '地下鉄ヘルットミエニ駅から東方向に徒歩10分',
 			public_status: '公開中',
 			traveller_id: 2
 		},
@@ -136,7 +136,7 @@ Spot.create!(
 			business_hours: '24時間営業、年中無休',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: '地下鉄ヘルットミエニ駅から南に徒歩5分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
@@ -149,7 +149,7 @@ Spot.create!(
 			business_hours: '5月/9月 月〜土9:30-17:00 日12:00-17:00、6月〜8月 月〜木・土9:30-17:30 金9:30-20:00 日12:00-17:00、10〜4月 月〜土10:00-17:00 日12:00-17:00',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から西方向に徒歩13分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
@@ -162,7 +162,7 @@ Spot.create!(
 			business_hours: '月〜金9:00-20:00 土9:00-19:00 日11:00-18:00、定休日なし',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から南方向に徒歩4分',
 			public_status: '公開中',
 			traveller_id:  2
 		},
@@ -175,7 +175,7 @@ Spot.create!(
 			business_hours: '月〜金9:00-20:00 土9:00-19:00 日11:00-18:00、定休日なし',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から南方向に徒歩4分',
 			public_status: '公開中',
 			traveller_id: 2
 		},
@@ -188,7 +188,7 @@ Spot.create!(
 			business_hours: '月～木10:30-24:00 金10:30-01:00 土12:00-0:00 日12:00-24:00、定休日なし',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から南方向に徒歩20分、ヘルシンキ中央駅からバス15分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
@@ -201,7 +201,7 @@ Spot.create!(
 			business_hours: '',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から電車で2時間(VR：intercityに乗る ) 9ユーロ〜',
 			public_status: '公開中',
 			traveller_id: 3
 		},
@@ -214,7 +214,7 @@ Spot.create!(
 			business_hours: '火～金9:00-19:00 土日11:00-18:00、定休日:月',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'タンペレ駅から東方向に徒歩10分',
 			public_status: '公開中',
 			traveller_id: 3
 		},
@@ -227,7 +227,7 @@ Spot.create!(
 			business_hours: '月〜金11:00-18:00 土日11:00-16:00、定休日:夏至祭イヴ 夏至祭',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'タンペレ駅から西方向に徒歩20分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
@@ -240,7 +240,7 @@ Spot.create!(
 			business_hours: '月〜日10:00-15:00 夏季10:00-17:00',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'タンペレ駅から西方向に徒歩8分',
 			public_status: '公開中',
 			traveller_id: 3
 		},
@@ -253,7 +253,7 @@ Spot.create!(
 			business_hours: '夏期（6月上旬〜8下旬）9:00-21:00 夏至・クリスマスイヴ9:00-15:00 その他9:00-21:00、定休日なし',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'タンペレ駅から南方向に徒歩30分、タンペレ駅からバス20分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
@@ -266,7 +266,7 @@ Spot.create!(
 			business_hours: '月〜金10:00-17:00 土10:00-17:00 日12:00-16:00、定休日:冬期の日',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'タンペレ駅から南方向に徒歩20分、タンペレ駅からバス9分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
@@ -279,7 +279,7 @@ Spot.create!(
 			business_hours: '月11:00-22:00 火〜金11:00-22:00 土12:00-22:00 日12:00-18:00、定休日なし',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'タンペレ駅から東方向に徒歩10分',
 			public_status: '公開中',
 			traveller_id: 3
 		},
@@ -292,7 +292,7 @@ Spot.create!(
 			business_hours: '月9:00-18:00 火〜金9:00-20:00 土11:00-18:00 日12:00-18:00、定休日:夏至祭前後',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'タンペレ駅から東方向に徒歩10分',
 			public_status: '公開中',
 			traveller_id: 3
 		},
@@ -305,7 +305,7 @@ Spot.create!(
 			business_hours: '月〜木8:00-16:00 5月中旬〜9月中旬の日10:00-17:00、定休日:5月中旬〜9月中旬以外の日',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から東方向に徒歩15分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
@@ -331,7 +331,7 @@ Spot.create!(
 			business_hours: '月〜金8:00-20:00 土10:00-16:00 日12:00-16:00、定休日なし',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から徒歩1分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
@@ -344,7 +344,7 @@ Spot.create!(
 			business_hours: '月〜金10:00-19:00 土10:00-18:00、定休日:日',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から北方向に徒歩5分',
 			public_status: '公開中',
 			traveller_id: 2
 		},
@@ -357,7 +357,7 @@ Spot.create!(
 			business_hours: '月〜金10:00-18:00 土11:00ｰ16:00、定休日:日祝',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から北方向に徒歩16分',
 			public_status: '公開中',
 			traveller_id: 2
 		},
@@ -370,7 +370,7 @@ Spot.create!(
 			business_hours: '火〜金11:00-18:00 土11:00-16:00、定休日:日月',
 			stay_time: '',
 			position: '',
-			access: '',
+			access: 'ヘルシンキ中央駅から西方向に徒歩12分',
 			public_status: '公開中',
 			traveller_id: 1
 		},
