@@ -51,8 +51,8 @@
 								<% else %>
 								  <h5>スポット選択</h5>
 									<div class="row text-center">
-										<div class="col-sm-6"><h6 class="fav_spot_btn">お気に入りスポット</h6></div>
-										<div class="col-sm-6"><h6 class="my_spot_btn">投稿したスポット</h6></div>
+										<div class="col-sm-6"><h6 class="fav_spot_btn btn btn-secondary"><input type="radio" name="options" id="option1" style="display:none">お気に入りスポット</h6></div>
+										<div class="col-sm-6"><h6 class="my_spot_btn btn btn-secondary"><input type="radio" name="options" id="option2" style="display:none">投稿したスポット</h6></div>
 									</div>
 									<%= f.collection_select :spot_id, @favorite_spots, :id, :spot_name, {include_blank: true}, class: "form-control fav_spot" %>
 									<%= f.collection_select :spot_id, @spots, :id, :spot_name, {include_blank: true}, class: "form-control my_spot" %>
