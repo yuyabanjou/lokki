@@ -108,8 +108,7 @@
 	<div class="row justify-content-center text-center">
 		<div class="col-lg">
 			<% if current_traveller.id == @itinerary.traveller_id %>
-				<h4>公開ステータス</h4>
-				<%= @itinerary.public_status %>
+				<h4>公開ステータス：<%= @itinerary.public_status %></h4>
 				<%= link_to '編集する', edit_traveller_itinerary_path(@itinerary.id), class: "btn btn-lg, btn-primary" %>
 			<% end %>
 		</div>

@@ -2,8 +2,8 @@
 	<tr id=<%=itinerary_spot.id %>>
 		<td>
 			<%= itinerary_spot.arrival_plan_time.strftime("%Y-%m-%d") %><br>
-			到着：<%= itinerary_spot.arrival_plan_time.strftime("%R") %><br>
-			出発：<%= itinerary_spot.start_plan_time.strftime("%R") %>
+			start：<%= itinerary_spot.arrival_plan_time.strftime("%R") %><br>
+			end&thinsp;&thinsp;：<%= itinerary_spot.start_plan_time.strftime("%R") %>
 		</td>
 		<td>
 			<%= itinerary_spot.moving_genre %><br>

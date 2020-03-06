@@ -5,15 +5,21 @@
 
 			<%= form_for([@traveller, @itinerary]) do |f| %>
 
-			<div class="row" style="padding-bottom: 10px;"><%= f.text_field :title, :size=>"40", placeholder: "旅のタイトル" %></div>
+			<div class="row" style="padding-bottom: 10px;"><%= f.text_field :title, :size=>"40", placeholder: "旅のタイトル", class: "form-control" %></div>
 
-			<div class="row" style="padding-bottom: 10px;"><%= f.text_field :theme, :size=>"40", placeholder: "旅のテーマ" %></div>
+			<div class="row" style="padding-bottom: 10px;"><%= f.text_field :theme, :size=>"40", placeholder: "旅のテーマ", class: "form-control" %></div>
 
-			<div class="row" style="padding-bottom: 10px;"><%= f.text_area :synopsis, :size=>"39x10", placeholder: "旅の概要" %></div>
+			<div class="row" style="padding-bottom: 10px;"><%= f.text_area :synopsis, :size=>"39x10", placeholder: "旅の概要", class: "form-control" %></div>
 
 			<div class="row" style="padding-bottom: 10px;">
-				<label><%= f.radio_button :public_status, :公開中 %>公開</label>
-				<label><%= f.radio_button :public_status, :非公開 %>非公開</label>
+				<div class="col-sm-10 btn-group" data-toggle="buttons">
+					<label class="btn btn-outline-secondary active" style="width:50%">
+						<%= f.radio_button :public_status, :非公開, {checked: true} %> 非公開
+					</label>
+					<label class="btn btn-outline-secondary" style="width:50%">
+						<%= f.radio_button :public_status, :公開中, {} %> 公開
+					</label>
+				</div>
 			</div>
 
 			<%= f.submit('予定を立てる',class: "btn btn-primary btn-lg my-1 mb-5 px-5") %>
