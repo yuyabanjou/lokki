@@ -40,7 +40,7 @@ class ItinerariesController < ApplicationController
 
 	def show
 		@itinerary = Itinerary.find(params[:id])
-		@itinerary_spots = @itinerary.itinerary_spots.all
+		@itinerary_spots = @itinerary.itinerary_spots.all.order(arrival_plan_time: "ASC")
 	end
 
 	private

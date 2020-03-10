@@ -17,12 +17,6 @@
 					</div>
 
 					<div class="col-sm-6">
-						<% if traveller_signed_in? %>
-							<% if current_traveller.id == @spot.traveller_id %>
-								<h4><%= link_to '編集する', edit_traveller_spot_path(@spot.id) %></h4>
-								<h2 style="padding-bottom: 5px;"><%= @spot.public_status %></h2>
-							<% end %>
-						<% end %>
 
 						<h3 style="padding-bottom: 5px;"><%= @spot.spot_name %> / <%= @spot.genre %></h3>
 
@@ -45,9 +39,22 @@
 					  	<p><span>お気に入り数:<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i></span><%= @spot.favorite_spots.count %></p>
 					  <% end %>
 					</div>
+			</div>
 
+			<% if traveller_signed_in? %>
+				<% if current_traveller.id == @spot.traveller_id %>
+			<div class="row">
+				<div class="col-sm-6">
+				</div>
+				<div class="col-sm-3">
+					<h2 style="padding-bottom: 5px;"><%= @spot.public_status %></h2>
+				</div>
+				<div class="col-sm-3">
+					<h4><%= link_to '編集する', edit_traveller_spot_path(@spot.id), class: "btn btn-primary" %></h4>
 				</div>
 			</div>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>

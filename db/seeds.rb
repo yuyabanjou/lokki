@@ -376,3 +376,63 @@ Spot.create!(
 		},
 	]
 )
+
+Itinerary.create!(
+	[
+		{
+			traveller_id: '1',
+			title: '暮らすように旅をする',
+			synopsis: '観光・グルメ',
+			theme: '６月２１日・６月２２日の２日間の旅',
+			public_status: '非公開'
+		},
+		{
+			traveller_id: '1',
+			title: '暮らすように旅をする',
+			synopsis: '観光・グルメ',
+			theme: '６月２１日・６月２２日の２日間の旅',
+			public_status: '非公開'
+		}
+	]
+)
+
+ItinerarySpot.create!(
+	[
+		{
+			itinerary_id: '1',
+			spot_id: '11',
+			date: '',
+			itinerary_spot_memo: '',
+			reference_url: '',
+			moving_genre: '電車',
+			moving_memo: '３番ホームからA4出口へ向かう',
+			fare: '9',
+			arrival_plan_time: '202006211200',
+			start_plan_time: '202006211230'
+		},
+		{
+			itinerary_id: '1',
+			spot_id: '12',
+			date: '',
+			itinerary_spot_memo: '2017年にフィンランド独立100年にリニューアルオープンした美術館。',
+			reference_url: '',
+			moving_genre: '徒歩',
+			moving_memo: '',
+			fare: '12',
+			arrival_plan_time: '202006211230',
+			start_plan_time: '202006211240'
+		},
+		{
+			itinerary_id: '1',
+			spot_id: '17',
+			date: '',
+			itinerary_spot_memo: 'ランチ お肉を食べる',
+			reference_url: '',
+			moving_genre: '',
+			moving_memo: '',
+			fare: '0',
+			arrival_plan_time: '202006211400',
+			start_plan_time: '202006211600'
+		}
+	]
+)

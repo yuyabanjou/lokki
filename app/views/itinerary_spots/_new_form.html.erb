@@ -1,5 +1,16 @@
 <div class="modal-dialog modal-dialog-centered modal-lg">
   <div class="modal-content">
+
+<!-- validation保留
+		<%# if @itinerary_spot.errors.any? %>
+			<ul>
+				<%# @itinerary_spot.errors.full_messages.each do |msg| %>
+					<li><%#= msg %></li>
+				<%# end %>
+			</ul>
+		<%# end %>
+-->
+
   	<%= form_for([@itinerary, @itinerary_spot], url:traveller_itinerary_itinerary_spots_path(current_traveller.id, @itinerary.id), remote: true) do |f| %>
     <div class="modal-header">
       <h4 class="modal-title">new spot</h4>
