@@ -8,6 +8,7 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.公開中.page(params[:page]).reverse_order
+    @genres = Spot.genres
   end
 
   def show

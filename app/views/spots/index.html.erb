@@ -1,5 +1,16 @@
 <div class="container">
+
 	<div class="row">
+		<div class="col">
+			<% @genres.each do |genre| %>
+				<%= genre %>
+			<% end %>
+			<%= select :genre, :name, @genres.keys.to_a, include_blank: true %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col">
 		<%# if traveller_signed_in? %>
 		<%#= link_to '新規登録ボタン', new_traveller_spot_path(current_traveller) %>
 		<%# end %>
@@ -34,5 +45,6 @@
 				<%= paginate @spots, class: "paginate" %>
 			</tbody>
 		</table>
+		</div>
 	</div>
 </div>
